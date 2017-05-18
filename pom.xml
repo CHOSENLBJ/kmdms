@@ -34,7 +34,7 @@
             <version>4.12</version>
         </dependency>
         <!-- 日志文件管理包 -->
-        <!-- log start -->
+        <!--  log start  -->
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
