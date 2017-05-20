@@ -11,8 +11,8 @@
     <packaging>jar</packaging>
     <artifactId>kmdms-service</artifactId>
 
-    <dependencies> 
-        <dependency> 
+    <dependencies>
+        <dependency>
             <groupId>com.kmdms</groupId>
             <artifactId>kmdms-dao</artifactId>
             <version>1.0-SNAPSHOT</version>
