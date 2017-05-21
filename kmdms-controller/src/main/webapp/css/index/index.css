@@ -1,0 +1,39 @@
+
+body{
+	background-color: #EEE;
+}
+
+#kmdms-login{
+	margin-top: 150px;
+	text-align: center;
+}
+#kmdms-login form{
+	padding: 15px;
+	box-shadow: 1px 1px 3px 3px #CCC;
+	border-radius: 5px;
+	background-color: #FFF;
+	margin: 0 auto;
+	width: 65%;
+	border: 1px #BBB solid;
+}
+
+#kmdms-login form #kmdms-login-title{
+	text-align: left;
+}
+
+#kmdms-login form input{
+	width: 100%;
+	border:none;
+	border-bottom: 1px #AAA solid;
+	outline: none;
+}
+#kmdms-login form button {
+	color: #FFF;
+	font-weight: bold;
+	background-color: #3EABB8;
+	width: 100%;
+}
+
+#kmdms-login-findPwd{
+	margin-top: 5px;
+}
