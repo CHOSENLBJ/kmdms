@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kmdms.mapper.DormitoryMapper" >
+  <resultMap id="BaseResultMap" type="com.kmdms.pojo.Dormitory" >
+    <id column="dormitory_id" property="dormitoryId" jdbcType="VARCHAR" />
+    <result column="roomNum" property="roomnum" jdbcType="VARCHAR" />
+    <result column="bedCount" property="bedcount" jdbcType="INTEGER" />
+    <result column="dormitory_sort" property="dormitorySort" jdbcType="INTEGER" />
+    <result column="building_id" property="buildingId" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    dormitory_id, roomNum, bedCount, dormitory_sort, building_id
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kmdms.pojo.DormitoryExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from dormitory
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from dormitory
+    where dormitory_id = #{dormitoryId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from dormitory
+    where dormitory_id = #{dormitoryId,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.kmdms.pojo.DormitoryExample" >
+    delete from dormitory
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.kmdms.pojo.Dormitory" >
+    insert into dormitory (dormitory_id, roomNum, bedCount, 
+      dormitory_sort, building_id)
+    values (#{dormitoryId,jdbcType=VARCHAR}, #{roomnum,jdbcType=VARCHAR}, #{bedcount,jdbcType=INTEGER}, 
+      #{dormitorySort,jdbcType=INTEGER}, #{buildingId,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.kmdms.pojo.Dormitory" >
+    insert into dormitory
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="dormitoryId != null" >
+        dormitory_id,
+      </if>
+      <if test="roomnum != null" >
+        roomNum,
+      </if>
+      <if test="bedcount != null" >
+        bedCount,
+      </if>
+      <if test="dormitorySort != null" >
+        dormitory_sort,
+      </if>
+      <if test="buildingId != null" >
+        building_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="dormitoryId != null" >
+        #{dormitoryId,jdbcType=VARCHAR},
+      </if>
+      <if test="roomnum != null" >
+        #{roomnum,jdbcType=VARCHAR},
+      </if>
+      <if test="bedcount != null" >
+        #{bedcount,jdbcType=INTEGER},
+      </if>
+      <if test="dormitorySort != null" >
+        #{dormitorySort,jdbcType=INTEGER},
+      </if>
+      <if test="buildingId != null" >
+        #{buildingId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.kmdms.pojo.DormitoryExample" resultType="java.lang.Integer" >
+    select count(*) from dormitory
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update dormitory
+    <set >
+      <if test="record.dormitoryId != null" >
+        dormitory_id = #{record.dormitoryId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.roomnum != null" >
+        roomNum = #{record.roomnum,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bedcount != null" >
+        bedCount = #{record.bedcount,jdbcType=INTEGER},
+      </if>
+      <if test="record.dormitorySort != null" >
+        dormitory_sort = #{record.dormitorySort,jdbcType=INTEGER},
+      </if>
+      <if test="record.buildingId != null" >
+        building_id = #{record.buildingId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update dormitory
+    set dormitory_id = #{record.dormitoryId,jdbcType=VARCHAR},
+      roomNum = #{record.roomnum,jdbcType=VARCHAR},
+      bedCount = #{record.bedcount,jdbcType=INTEGER},
+      dormitory_sort = #{record.dormitorySort,jdbcType=INTEGER},
+      building_id = #{record.buildingId,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.kmdms.pojo.Dormitory" >
+    update dormitory
+    <set >
+      <if test="roomnum != null" >
+        roomNum = #{roomnum,jdbcType=VARCHAR},
+      </if>
+      <if test="bedcount != null" >
+        bedCount = #{bedcount,jdbcType=INTEGER},
+      </if>
+      <if test="dormitorySort != null" >
+        dormitory_sort = #{dormitorySort,jdbcType=INTEGER},
+      </if>
+      <if test="buildingId != null" >
+        building_id = #{buildingId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where dormitory_id = #{dormitoryId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.kmdms.pojo.Dormitory" >
+    update dormitory
+    set roomNum = #{roomnum,jdbcType=VARCHAR},
+      bedCount = #{bedcount,jdbcType=INTEGER},
+      dormitory_sort = #{dormitorySort,jdbcType=INTEGER},
+      building_id = #{buildingId,jdbcType=VARCHAR}
+    where dormitory_id = #{dormitoryId,jdbcType=VARCHAR}
+  </update>
+</mapper>

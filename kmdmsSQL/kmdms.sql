@@ -1,5 +1,5 @@
 /*
-SQLyog Ultimate v8.32 
+SQLyog Ultimate v11.24 (32 bit)
 MySQL - 5.5.36 : Database - kmdms
 *********************************************************************
 */
@@ -50,7 +50,6 @@ DROP TABLE IF EXISTS `department`;
 CREATE TABLE `department` (
   `department_id` varchar(32) NOT NULL,
   `department_name` varchar(32) NOT NULL,
-  `college_id` varchar(32) NOT NULL,
   PRIMARY KEY (`department_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
