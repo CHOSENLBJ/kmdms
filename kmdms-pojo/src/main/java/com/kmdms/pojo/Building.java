@@ -5,11 +5,11 @@ public class Building {
 
     private String buildingName;
 
-    private Integer floorcount;
+    private Integer floorCount;
 
-    private Integer dcount;
+    private Integer dCount;
 
-    private Integer totaldcount;
+    private Integer totalDCount;
 
     public String getBuildingId() {
         return buildingId;
@@ -27,27 +27,27 @@ public class Building {
         this.buildingName = buildingName == null ? null : buildingName.trim();
     }
 
-    public Integer getFloorcount() {
-        return floorcount;
+    public Integer getFloorCount() {
+        return floorCount;
     }
 
-    public void setFloorcount(Integer floorcount) {
-        this.floorcount = floorcount;
+    public void setFloorCount(Integer floorCount) {
+        this.floorCount = floorCount;
     }
 
-    public Integer getDcount() {
-        return dcount;
+    public Integer getdCount() {
+        return dCount;
     }
 
-    public void setDcount(Integer dcount) {
-        this.dcount = dcount;
+    public void setdCount(Integer dCount) {
+        this.dCount = dCount;
     }
 
-    public Integer getTotaldcount() {
-        return totaldcount;
+    public Integer getTotalDCount() {
+        return totalDCount;
     }
 
-    public void setTotaldcount(Integer totaldcount) {
-        this.totaldcount = totaldcount;
+    public void setTotalDCount(Integer totalDCount) {
+        this.totalDCount = totalDCount;
     }
 }

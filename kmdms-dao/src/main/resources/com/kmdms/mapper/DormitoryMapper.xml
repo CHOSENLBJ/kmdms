@@ -3,8 +3,8 @@
 <mapper namespace="com.kmdms.mapper.DormitoryMapper" >
   <resultMap id="BaseResultMap" type="com.kmdms.pojo.Dormitory" >
     <id column="dormitory_id" property="dormitoryId" jdbcType="VARCHAR" />
-    <result column="roomNum" property="roomnum" jdbcType="VARCHAR" />
-    <result column="bedCount" property="bedcount" jdbcType="INTEGER" />
+    <result column="room_num" property="roomNum" jdbcType="VARCHAR" />
+    <result column="bed_count" property="bedCount" jdbcType="INTEGER" />
     <result column="dormitory_sort" property="dormitorySort" jdbcType="INTEGER" />
     <result column="building_id" property="buildingId" jdbcType="VARCHAR" />
   </resultMap>
@@ -67,7 +67,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    dormitory_id, roomNum, bedCount, dormitory_sort, building_id
+    dormitory_id, room_num, bed_count, dormitory_sort, building_id
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kmdms.pojo.DormitoryExample" >
     select
@@ -100,9 +100,9 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.kmdms.pojo.Dormitory" >
-    insert into dormitory (dormitory_id, roomNum, bedCount, 
+    insert into dormitory (dormitory_id, room_num, bed_count, 
       dormitory_sort, building_id)
-    values (#{dormitoryId,jdbcType=VARCHAR}, #{roomnum,jdbcType=VARCHAR}, #{bedcount,jdbcType=INTEGER}, 
+    values (#{dormitoryId,jdbcType=VARCHAR}, #{roomNum,jdbcType=VARCHAR}, #{bedCount,jdbcType=INTEGER}, 
       #{dormitorySort,jdbcType=INTEGER}, #{buildingId,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.kmdms.pojo.Dormitory" >
@@ -111,11 +111,11 @@
       <if test="dormitoryId != null" >
         dormitory_id,
       </if>
-      <if test="roomnum != null" >
-        roomNum,
+      <if test="roomNum != null" >
+        room_num,
       </if>
-      <if test="bedcount != null" >
-        bedCount,
+      <if test="bedCount != null" >
+        bed_count,
       </if>
       <if test="dormitorySort != null" >
         dormitory_sort,
@@ -128,11 +128,11 @@
       <if test="dormitoryId != null" >
         #{dormitoryId,jdbcType=VARCHAR},
       </if>
-      <if test="roomnum != null" >
-        #{roomnum,jdbcType=VARCHAR},
+      <if test="roomNum != null" >
+        #{roomNum,jdbcType=VARCHAR},
       </if>
-      <if test="bedcount != null" >
-        #{bedcount,jdbcType=INTEGER},
+      <if test="bedCount != null" >
+        #{bedCount,jdbcType=INTEGER},
       </if>
       <if test="dormitorySort != null" >
         #{dormitorySort,jdbcType=INTEGER},
@@ -154,11 +154,11 @@
       <if test="record.dormitoryId != null" >
         dormitory_id = #{record.dormitoryId,jdbcType=VARCHAR},
       </if>
-      <if test="record.roomnum != null" >
-        roomNum = #{record.roomnum,jdbcType=VARCHAR},
+      <if test="record.roomNum != null" >
+        room_num = #{record.roomNum,jdbcType=VARCHAR},
       </if>
-      <if test="record.bedcount != null" >
-        bedCount = #{record.bedcount,jdbcType=INTEGER},
+      <if test="record.bedCount != null" >
+        bed_count = #{record.bedCount,jdbcType=INTEGER},
       </if>
       <if test="record.dormitorySort != null" >
         dormitory_sort = #{record.dormitorySort,jdbcType=INTEGER},
@@ -174,8 +174,8 @@
   <update id="updateByExample" parameterType="map" >
     update dormitory
     set dormitory_id = #{record.dormitoryId,jdbcType=VARCHAR},
-      roomNum = #{record.roomnum,jdbcType=VARCHAR},
-      bedCount = #{record.bedcount,jdbcType=INTEGER},
+      room_num = #{record.roomNum,jdbcType=VARCHAR},
+      bed_count = #{record.bedCount,jdbcType=INTEGER},
       dormitory_sort = #{record.dormitorySort,jdbcType=INTEGER},
       building_id = #{record.buildingId,jdbcType=VARCHAR}
     <if test="_parameter != null" >
@@ -185,11 +185,11 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.kmdms.pojo.Dormitory" >
     update dormitory
     <set >
-      <if test="roomnum != null" >
-        roomNum = #{roomnum,jdbcType=VARCHAR},
+      <if test="roomNum != null" >
+        room_num = #{roomNum,jdbcType=VARCHAR},
       </if>
-      <if test="bedcount != null" >
-        bedCount = #{bedcount,jdbcType=INTEGER},
+      <if test="bedCount != null" >
+        bed_count = #{bedCount,jdbcType=INTEGER},
       </if>
       <if test="dormitorySort != null" >
         dormitory_sort = #{dormitorySort,jdbcType=INTEGER},
@@ -202,8 +202,8 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.kmdms.pojo.Dormitory" >
     update dormitory
-    set roomNum = #{roomnum,jdbcType=VARCHAR},
-      bedCount = #{bedcount,jdbcType=INTEGER},
+    set room_num = #{roomNum,jdbcType=VARCHAR},
+      bed_count = #{bedCount,jdbcType=INTEGER},
       dormitory_sort = #{dormitorySort,jdbcType=INTEGER},
       building_id = #{buildingId,jdbcType=VARCHAR}
     where dormitory_id = #{dormitoryId,jdbcType=VARCHAR}

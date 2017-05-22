@@ -594,63 +594,63 @@ public class StudentExample {
             return (Criteria) this;
         }
 
-        public Criteria andBednumIsNull() {
-            addCriterion("bedNum is null");
+        public Criteria andBedNumIsNull() {
+            addCriterion("bed_num is null");
             return (Criteria) this;
         }
 
-        public Criteria andBednumIsNotNull() {
-            addCriterion("bedNum is not null");
+        public Criteria andBedNumIsNotNull() {
+            addCriterion("bed_num is not null");
             return (Criteria) this;
         }
 
-        public Criteria andBednumEqualTo(Integer value) {
-            addCriterion("bedNum =", value, "bednum");
+        public Criteria andBedNumEqualTo(Integer value) {
+            addCriterion("bed_num =", value, "bedNum");
             return (Criteria) this;
         }
 
-        public Criteria andBednumNotEqualTo(Integer value) {
-            addCriterion("bedNum <>", value, "bednum");
+        public Criteria andBedNumNotEqualTo(Integer value) {
+            addCriterion("bed_num <>", value, "bedNum");
             return (Criteria) this;
         }
 
-        public Criteria andBednumGreaterThan(Integer value) {
-            addCriterion("bedNum >", value, "bednum");
+        public Criteria andBedNumGreaterThan(Integer value) {
+            addCriterion("bed_num >", value, "bedNum");
             return (Criteria) this;
         }
 
-        public Criteria andBednumGreaterThanOrEqualTo(Integer value) {
-            addCriterion("bedNum >=", value, "bednum");
+        public Criteria andBedNumGreaterThanOrEqualTo(Integer value) {
+            addCriterion("bed_num >=", value, "bedNum");
             return (Criteria) this;
         }
 
-        public Criteria andBednumLessThan(Integer value) {
-            addCriterion("bedNum <", value, "bednum");
+        public Criteria andBedNumLessThan(Integer value) {
+            addCriterion("bed_num <", value, "bedNum");
             return (Criteria) this;
         }
 
-        public Criteria andBednumLessThanOrEqualTo(Integer value) {
-            addCriterion("bedNum <=", value, "bednum");
+        public Criteria andBedNumLessThanOrEqualTo(Integer value) {
+            addCriterion("bed_num <=", value, "bedNum");
             return (Criteria) this;
         }
 
-        public Criteria andBednumIn(List<Integer> values) {
-            addCriterion("bedNum in", values, "bednum");
+        public Criteria andBedNumIn(List<Integer> values) {
+            addCriterion("bed_num in", values, "bedNum");
             return (Criteria) this;
         }
 
-        public Criteria andBednumNotIn(List<Integer> values) {
-            addCriterion("bedNum not in", values, "bednum");
+        public Criteria andBedNumNotIn(List<Integer> values) {
+            addCriterion("bed_num not in", values, "bedNum");
             return (Criteria) this;
         }
 
-        public Criteria andBednumBetween(Integer value1, Integer value2) {
-            addCriterion("bedNum between", value1, value2, "bednum");
+        public Criteria andBedNumBetween(Integer value1, Integer value2) {
+            addCriterion("bed_num between", value1, value2, "bedNum");
             return (Criteria) this;
         }
 
-        public Criteria andBednumNotBetween(Integer value1, Integer value2) {
-            addCriterion("bedNum not between", value1, value2, "bednum");
+        public Criteria andBedNumNotBetween(Integer value1, Integer value2) {
+            addCriterion("bed_num not between", value1, value2, "bedNum");
             return (Criteria) this;
         }
 

@@ -15,7 +15,7 @@ public class Student {
 
     private String stuSex;
 
-    private Integer bednum;
+    private Integer bedNum;
 
     private String dormitoryId;
 
@@ -75,12 +75,12 @@ public class Student {
         this.stuSex = stuSex == null ? null : stuSex.trim();
     }
 
-    public Integer getBednum() {
-        return bednum;
+    public Integer getBedNum() {
+        return bedNum;
     }
 
-    public void setBednum(Integer bednum) {
-        this.bednum = bednum;
+    public void setBedNum(Integer bedNum) {
+        this.bedNum = bedNum;
     }
 
     public String getDormitoryId() {

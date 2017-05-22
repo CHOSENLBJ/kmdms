@@ -1,5 +1,5 @@
 /*
-SQLyog Ultimate v11.24 (32 bit)
+SQLyog Ultimate v8.32 
 MySQL - 5.5.36 : Database - kmdms
 *********************************************************************
 */
@@ -23,9 +23,9 @@ DROP TABLE IF EXISTS `building`;
 CREATE TABLE `building` (
   `building_id` varchar(32) NOT NULL,
   `building_name` varchar(32) NOT NULL,
-  `floorCount` int(11) NOT NULL,
-  `dCount` int(11) NOT NULL,
-  `totalDCount` int(11) NOT NULL,
+  `floor_count` int(11) NOT NULL,
+  `d_count` int(11) NOT NULL,
+  `total_d_count` int(11) NOT NULL,
   PRIMARY KEY (`building_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -61,8 +61,8 @@ DROP TABLE IF EXISTS `dormitory`;
 
 CREATE TABLE `dormitory` (
   `dormitory_id` varchar(32) NOT NULL,
-  `roomNum` varchar(16) NOT NULL,
-  `bedCount` int(11) NOT NULL,
+  `room_num` varchar(16) NOT NULL,
+  `bed_count` int(11) NOT NULL,
   `dormitory_sort` int(11) NOT NULL,
   `building_id` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`dormitory_id`)
@@ -89,7 +89,7 @@ DROP TABLE IF EXISTS `message`;
 CREATE TABLE `message` (
   `message_id` varchar(32) NOT NULL,
   `content` varchar(256) NOT NULL,
-  `isRead` tinyint(1) DEFAULT NULL,
+  `is_read` tinyint(1) DEFAULT NULL,
   `message_date` date DEFAULT NULL,
   `stu_id` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`message_id`)
@@ -121,14 +121,14 @@ CREATE TABLE `student` (
   `stu_department` varchar(32) NOT NULL,
   `stu_class` varchar(16) NOT NULL,
   `stu_sex` varchar(8) NOT NULL,
-  `bedNum` int(11) DEFAULT NULL,
+  `bed_num` int(11) DEFAULT NULL,
   `dormitory_id` varchar(32) DEFAULT NULL,
   PRIMARY KEY (`stu_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `student` */
 
-insert  into `student`(`stu_id`,`stu_name`,`password`,`stu_college`,`stu_department`,`stu_class`,`stu_sex`,`bedNum`,`dormitory_id`) values ('sss','','','','','','',NULL,NULL);
+insert  into `student`(`stu_id`,`stu_name`,`password`,`stu_college`,`stu_department`,`stu_class`,`stu_sex`,`bed_num`,`dormitory_id`) values ('sss','','','','','','',NULL,NULL);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

@@ -174,133 +174,133 @@ public class DormitoryExample {
             return (Criteria) this;
         }
 
-        public Criteria andRoomnumIsNull() {
-            addCriterion("roomNum is null");
+        public Criteria andRoomNumIsNull() {
+            addCriterion("room_num is null");
             return (Criteria) this;
         }
 
-        public Criteria andRoomnumIsNotNull() {
-            addCriterion("roomNum is not null");
+        public Criteria andRoomNumIsNotNull() {
+            addCriterion("room_num is not null");
             return (Criteria) this;
         }
 
-        public Criteria andRoomnumEqualTo(String value) {
-            addCriterion("roomNum =", value, "roomnum");
+        public Criteria andRoomNumEqualTo(String value) {
+            addCriterion("room_num =", value, "roomNum");
             return (Criteria) this;
         }
 
-        public Criteria andRoomnumNotEqualTo(String value) {
-            addCriterion("roomNum <>", value, "roomnum");
+        public Criteria andRoomNumNotEqualTo(String value) {
+            addCriterion("room_num <>", value, "roomNum");
             return (Criteria) this;
         }
 
-        public Criteria andRoomnumGreaterThan(String value) {
-            addCriterion("roomNum >", value, "roomnum");
+        public Criteria andRoomNumGreaterThan(String value) {
+            addCriterion("room_num >", value, "roomNum");
             return (Criteria) this;
         }
 
-        public Criteria andRoomnumGreaterThanOrEqualTo(String value) {
-            addCriterion("roomNum >=", value, "roomnum");
+        public Criteria andRoomNumGreaterThanOrEqualTo(String value) {
+            addCriterion("room_num >=", value, "roomNum");
             return (Criteria) this;
         }
 
-        public Criteria andRoomnumLessThan(String value) {
-            addCriterion("roomNum <", value, "roomnum");
+        public Criteria andRoomNumLessThan(String value) {
+            addCriterion("room_num <", value, "roomNum");
             return (Criteria) this;
         }
 
-        public Criteria andRoomnumLessThanOrEqualTo(String value) {
-            addCriterion("roomNum <=", value, "roomnum");
+        public Criteria andRoomNumLessThanOrEqualTo(String value) {
+            addCriterion("room_num <=", value, "roomNum");
             return (Criteria) this;
         }
 
-        public Criteria andRoomnumLike(String value) {
-            addCriterion("roomNum like", value, "roomnum");
+        public Criteria andRoomNumLike(String value) {
+            addCriterion("room_num like", value, "roomNum");
             return (Criteria) this;
         }
 
-        public Criteria andRoomnumNotLike(String value) {
-            addCriterion("roomNum not like", value, "roomnum");
+        public Criteria andRoomNumNotLike(String value) {
+            addCriterion("room_num not like", value, "roomNum");
             return (Criteria) this;
         }
 
-        public Criteria andRoomnumIn(List<String> values) {
-            addCriterion("roomNum in", values, "roomnum");
+        public Criteria andRoomNumIn(List<String> values) {
+            addCriterion("room_num in", values, "roomNum");
             return (Criteria) this;
         }
 
-        public Criteria andRoomnumNotIn(List<String> values) {
-            addCriterion("roomNum not in", values, "roomnum");
+        public Criteria andRoomNumNotIn(List<String> values) {
+            addCriterion("room_num not in", values, "roomNum");
             return (Criteria) this;
         }
 
-        public Criteria andRoomnumBetween(String value1, String value2) {
-            addCriterion("roomNum between", value1, value2, "roomnum");
+        public Criteria andRoomNumBetween(String value1, String value2) {
+            addCriterion("room_num between", value1, value2, "roomNum");
             return (Criteria) this;
         }
 
-        public Criteria andRoomnumNotBetween(String value1, String value2) {
-            addCriterion("roomNum not between", value1, value2, "roomnum");
+        public Criteria andRoomNumNotBetween(String value1, String value2) {
+            addCriterion("room_num not between", value1, value2, "roomNum");
             return (Criteria) this;
         }
 
-        public Criteria andBedcountIsNull() {
-            addCriterion("bedCount is null");
+        public Criteria andBedCountIsNull() {
+            addCriterion("bed_count is null");
             return (Criteria) this;
         }
 
-        public Criteria andBedcountIsNotNull() {
-            addCriterion("bedCount is not null");
+        public Criteria andBedCountIsNotNull() {
+            addCriterion("bed_count is not null");
             return (Criteria) this;
         }
 
-        public Criteria andBedcountEqualTo(Integer value) {
-            addCriterion("bedCount =", value, "bedcount");
+        public Criteria andBedCountEqualTo(Integer value) {
+            addCriterion("bed_count =", value, "bedCount");
             return (Criteria) this;
         }
 
-        public Criteria andBedcountNotEqualTo(Integer value) {
-            addCriterion("bedCount <>", value, "bedcount");
+        public Criteria andBedCountNotEqualTo(Integer value) {
+            addCriterion("bed_count <>", value, "bedCount");
             return (Criteria) this;
         }
 
-        public Criteria andBedcountGreaterThan(Integer value) {
-            addCriterion("bedCount >", value, "bedcount");
+        public Criteria andBedCountGreaterThan(Integer value) {
+            addCriterion("bed_count >", value, "bedCount");
             return (Criteria) this;
         }
 
-        public Criteria andBedcountGreaterThanOrEqualTo(Integer value) {
-            addCriterion("bedCount >=", value, "bedcount");
+        public Criteria andBedCountGreaterThanOrEqualTo(Integer value) {
+            addCriterion("bed_count >=", value, "bedCount");
             return (Criteria) this;
         }
 
-        public Criteria andBedcountLessThan(Integer value) {
-            addCriterion("bedCount <", value, "bedcount");
+        public Criteria andBedCountLessThan(Integer value) {
+            addCriterion("bed_count <", value, "bedCount");
             return (Criteria) this;
         }
 
-        public Criteria andBedcountLessThanOrEqualTo(Integer value) {
-            addCriterion("bedCount <=", value, "bedcount");
+        public Criteria andBedCountLessThanOrEqualTo(Integer value) {
+            addCriterion("bed_count <=", value, "bedCount");
             return (Criteria) this;
         }
 
-        public Criteria andBedcountIn(List<Integer> values) {
-            addCriterion("bedCount in", values, "bedcount");
+        public Criteria andBedCountIn(List<Integer> values) {
+            addCriterion("bed_count in", values, "bedCount");
             return (Criteria) this;
         }
 
-        public Criteria andBedcountNotIn(List<Integer> values) {
-            addCriterion("bedCount not in", values, "bedcount");
+        public Criteria andBedCountNotIn(List<Integer> values) {
+            addCriterion("bed_count not in", values, "bedCount");
             return (Criteria) this;
         }
 
-        public Criteria andBedcountBetween(Integer value1, Integer value2) {
-            addCriterion("bedCount between", value1, value2, "bedcount");
+        public Criteria andBedCountBetween(Integer value1, Integer value2) {
+            addCriterion("bed_count between", value1, value2, "bedCount");
             return (Criteria) this;
         }
 
-        public Criteria andBedcountNotBetween(Integer value1, Integer value2) {
-            addCriterion("bedCount not between", value1, value2, "bedcount");
+        public Criteria andBedCountNotBetween(Integer value1, Integer value2) {
+            addCriterion("bed_count not between", value1, value2, "bedCount");
             return (Criteria) this;
         }
 

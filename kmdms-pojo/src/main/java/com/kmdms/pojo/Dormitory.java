@@ -3,9 +3,9 @@ package com.kmdms.pojo;
 public class Dormitory {
     private String dormitoryId;
 
-    private String roomnum;
+    private String roomNum;
 
-    private Integer bedcount;
+    private Integer bedCount;
 
     private Integer dormitorySort;
 
@@ -19,20 +19,20 @@ public class Dormitory {
         this.dormitoryId = dormitoryId == null ? null : dormitoryId.trim();
     }
 
-    public String getRoomnum() {
-        return roomnum;
+    public String getRoomNum() {
+        return roomNum;
     }
 
-    public void setRoomnum(String roomnum) {
-        this.roomnum = roomnum == null ? null : roomnum.trim();
+    public void setRoomNum(String roomNum) {
+        this.roomNum = roomNum == null ? null : roomNum.trim();
     }
 
-    public Integer getBedcount() {
-        return bedcount;
+    public Integer getBedCount() {
+        return bedCount;
     }
 
-    public void setBedcount(Integer bedcount) {
-        this.bedcount = bedcount;
+    public void setBedCount(Integer bedCount) {
+        this.bedCount = bedCount;
     }
 
     public Integer getDormitorySort() {

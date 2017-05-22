@@ -272,63 +272,63 @@ public class MessageExample {
             return (Criteria) this;
         }
 
-        public Criteria andIsreadIsNull() {
-            addCriterion("isRead is null");
+        public Criteria andIsReadIsNull() {
+            addCriterion("is_read is null");
             return (Criteria) this;
         }
 
-        public Criteria andIsreadIsNotNull() {
-            addCriterion("isRead is not null");
+        public Criteria andIsReadIsNotNull() {
+            addCriterion("is_read is not null");
             return (Criteria) this;
         }
 
-        public Criteria andIsreadEqualTo(Boolean value) {
-            addCriterion("isRead =", value, "isread");
+        public Criteria andIsReadEqualTo(Boolean value) {
+            addCriterion("is_read =", value, "isRead");
             return (Criteria) this;
         }
 
-        public Criteria andIsreadNotEqualTo(Boolean value) {
-            addCriterion("isRead <>", value, "isread");
+        public Criteria andIsReadNotEqualTo(Boolean value) {
+            addCriterion("is_read <>", value, "isRead");
             return (Criteria) this;
         }
 
-        public Criteria andIsreadGreaterThan(Boolean value) {
-            addCriterion("isRead >", value, "isread");
+        public Criteria andIsReadGreaterThan(Boolean value) {
+            addCriterion("is_read >", value, "isRead");
             return (Criteria) this;
         }
 
-        public Criteria andIsreadGreaterThanOrEqualTo(Boolean value) {
-            addCriterion("isRead >=", value, "isread");
+        public Criteria andIsReadGreaterThanOrEqualTo(Boolean value) {
+            addCriterion("is_read >=", value, "isRead");
             return (Criteria) this;
         }
 
-        public Criteria andIsreadLessThan(Boolean value) {
-            addCriterion("isRead <", value, "isread");
+        public Criteria andIsReadLessThan(Boolean value) {
+            addCriterion("is_read <", value, "isRead");
             return (Criteria) this;
         }
 
-        public Criteria andIsreadLessThanOrEqualTo(Boolean value) {
-            addCriterion("isRead <=", value, "isread");
+        public Criteria andIsReadLessThanOrEqualTo(Boolean value) {
+            addCriterion("is_read <=", value, "isRead");
             return (Criteria) this;
         }
 
-        public Criteria andIsreadIn(List<Boolean> values) {
-            addCriterion("isRead in", values, "isread");
+        public Criteria andIsReadIn(List<Boolean> values) {
+            addCriterion("is_read in", values, "isRead");
             return (Criteria) this;
         }
 
-        public Criteria andIsreadNotIn(List<Boolean> values) {
-            addCriterion("isRead not in", values, "isread");
+        public Criteria andIsReadNotIn(List<Boolean> values) {
+            addCriterion("is_read not in", values, "isRead");
             return (Criteria) this;
         }
 
-        public Criteria andIsreadBetween(Boolean value1, Boolean value2) {
-            addCriterion("isRead between", value1, value2, "isread");
+        public Criteria andIsReadBetween(Boolean value1, Boolean value2) {
+            addCriterion("is_read between", value1, value2, "isRead");
             return (Criteria) this;
         }
 
-        public Criteria andIsreadNotBetween(Boolean value1, Boolean value2) {
-            addCriterion("isRead not between", value1, value2, "isread");
+        public Criteria andIsReadNotBetween(Boolean value1, Boolean value2) {
+            addCriterion("is_read not between", value1, value2, "isRead");
             return (Criteria) this;
         }
 

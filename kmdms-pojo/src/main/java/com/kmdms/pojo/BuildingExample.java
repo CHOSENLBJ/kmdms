@@ -244,183 +244,183 @@ public class BuildingExample {
             return (Criteria) this;
         }
 
-        public Criteria andFloorcountIsNull() {
-            addCriterion("floorCount is null");
+        public Criteria andFloorCountIsNull() {
+            addCriterion("floor_count is null");
             return (Criteria) this;
         }
 
-        public Criteria andFloorcountIsNotNull() {
-            addCriterion("floorCount is not null");
+        public Criteria andFloorCountIsNotNull() {
+            addCriterion("floor_count is not null");
             return (Criteria) this;
         }
 
-        public Criteria andFloorcountEqualTo(Integer value) {
-            addCriterion("floorCount =", value, "floorcount");
+        public Criteria andFloorCountEqualTo(Integer value) {
+            addCriterion("floor_count =", value, "floorCount");
             return (Criteria) this;
         }
 
-        public Criteria andFloorcountNotEqualTo(Integer value) {
-            addCriterion("floorCount <>", value, "floorcount");
+        public Criteria andFloorCountNotEqualTo(Integer value) {
+            addCriterion("floor_count <>", value, "floorCount");
             return (Criteria) this;
         }
 
-        public Criteria andFloorcountGreaterThan(Integer value) {
-            addCriterion("floorCount >", value, "floorcount");
+        public Criteria andFloorCountGreaterThan(Integer value) {
+            addCriterion("floor_count >", value, "floorCount");
             return (Criteria) this;
         }
 
-        public Criteria andFloorcountGreaterThanOrEqualTo(Integer value) {
-            addCriterion("floorCount >=", value, "floorcount");
+        public Criteria andFloorCountGreaterThanOrEqualTo(Integer value) {
+            addCriterion("floor_count >=", value, "floorCount");
             return (Criteria) this;
         }
 
-        public Criteria andFloorcountLessThan(Integer value) {
-            addCriterion("floorCount <", value, "floorcount");
+        public Criteria andFloorCountLessThan(Integer value) {
+            addCriterion("floor_count <", value, "floorCount");
             return (Criteria) this;
         }
 
-        public Criteria andFloorcountLessThanOrEqualTo(Integer value) {
-            addCriterion("floorCount <=", value, "floorcount");
+        public Criteria andFloorCountLessThanOrEqualTo(Integer value) {
+            addCriterion("floor_count <=", value, "floorCount");
             return (Criteria) this;
         }
 
-        public Criteria andFloorcountIn(List<Integer> values) {
-            addCriterion("floorCount in", values, "floorcount");
+        public Criteria andFloorCountIn(List<Integer> values) {
+            addCriterion("floor_count in", values, "floorCount");
             return (Criteria) this;
         }
 
-        public Criteria andFloorcountNotIn(List<Integer> values) {
-            addCriterion("floorCount not in", values, "floorcount");
+        public Criteria andFloorCountNotIn(List<Integer> values) {
+            addCriterion("floor_count not in", values, "floorCount");
             return (Criteria) this;
         }
 
-        public Criteria andFloorcountBetween(Integer value1, Integer value2) {
-            addCriterion("floorCount between", value1, value2, "floorcount");
+        public Criteria andFloorCountBetween(Integer value1, Integer value2) {
+            addCriterion("floor_count between", value1, value2, "floorCount");
             return (Criteria) this;
         }
 
-        public Criteria andFloorcountNotBetween(Integer value1, Integer value2) {
-            addCriterion("floorCount not between", value1, value2, "floorcount");
+        public Criteria andFloorCountNotBetween(Integer value1, Integer value2) {
+            addCriterion("floor_count not between", value1, value2, "floorCount");
             return (Criteria) this;
         }
 
-        public Criteria andDcountIsNull() {
-            addCriterion("dCount is null");
+        public Criteria andDCountIsNull() {
+            addCriterion("d_count is null");
             return (Criteria) this;
         }
 
-        public Criteria andDcountIsNotNull() {
-            addCriterion("dCount is not null");
+        public Criteria andDCountIsNotNull() {
+            addCriterion("d_count is not null");
             return (Criteria) this;
         }
 
-        public Criteria andDcountEqualTo(Integer value) {
-            addCriterion("dCount =", value, "dcount");
+        public Criteria andDCountEqualTo(Integer value) {
+            addCriterion("d_count =", value, "dCount");
             return (Criteria) this;
         }
 
-        public Criteria andDcountNotEqualTo(Integer value) {
-            addCriterion("dCount <>", value, "dcount");
+        public Criteria andDCountNotEqualTo(Integer value) {
+            addCriterion("d_count <>", value, "dCount");
             return (Criteria) this;
         }
 
-        public Criteria andDcountGreaterThan(Integer value) {
-            addCriterion("dCount >", value, "dcount");
+        public Criteria andDCountGreaterThan(Integer value) {
+            addCriterion("d_count >", value, "dCount");
             return (Criteria) this;
         }
 
-        public Criteria andDcountGreaterThanOrEqualTo(Integer value) {
-            addCriterion("dCount >=", value, "dcount");
+        public Criteria andDCountGreaterThanOrEqualTo(Integer value) {
+            addCriterion("d_count >=", value, "dCount");
             return (Criteria) this;
         }
 
-        public Criteria andDcountLessThan(Integer value) {
-            addCriterion("dCount <", value, "dcount");
+        public Criteria andDCountLessThan(Integer value) {
+            addCriterion("d_count <", value, "dCount");
             return (Criteria) this;
         }
 
-        public Criteria andDcountLessThanOrEqualTo(Integer value) {
-            addCriterion("dCount <=", value, "dcount");
+        public Criteria andDCountLessThanOrEqualTo(Integer value) {
+            addCriterion("d_count <=", value, "dCount");
             return (Criteria) this;
         }
 
-        public Criteria andDcountIn(List<Integer> values) {
-            addCriterion("dCount in", values, "dcount");
+        public Criteria andDCountIn(List<Integer> values) {
+            addCriterion("d_count in", values, "dCount");
             return (Criteria) this;
         }
 
-        public Criteria andDcountNotIn(List<Integer> values) {
-            addCriterion("dCount not in", values, "dcount");
+        public Criteria andDCountNotIn(List<Integer> values) {
+            addCriterion("d_count not in", values, "dCount");
             return (Criteria) this;
         }
 
-        public Criteria andDcountBetween(Integer value1, Integer value2) {
-            addCriterion("dCount between", value1, value2, "dcount");
+        public Criteria andDCountBetween(Integer value1, Integer value2) {
+            addCriterion("d_count between", value1, value2, "dCount");
             return (Criteria) this;
         }
 
-        public Criteria andDcountNotBetween(Integer value1, Integer value2) {
-            addCriterion("dCount not between", value1, value2, "dcount");
+        public Criteria andDCountNotBetween(Integer value1, Integer value2) {
+            addCriterion("d_count not between", value1, value2, "dCount");
             return (Criteria) this;
         }
 
-        public Criteria andTotaldcountIsNull() {
-            addCriterion("totalDCount is null");
+        public Criteria andTotalDCountIsNull() {
+            addCriterion("total_d_count is null");
             return (Criteria) this;
         }
 
-        public Criteria andTotaldcountIsNotNull() {
-            addCriterion("totalDCount is not null");
+        public Criteria andTotalDCountIsNotNull() {
+            addCriterion("total_d_count is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTotaldcountEqualTo(Integer value) {
-            addCriterion("totalDCount =", value, "totaldcount");
+        public Criteria andTotalDCountEqualTo(Integer value) {
+            addCriterion("total_d_count =", value, "totalDCount");
             return (Criteria) this;
         }
 
-        public Criteria andTotaldcountNotEqualTo(Integer value) {
-            addCriterion("totalDCount <>", value, "totaldcount");
+        public Criteria andTotalDCountNotEqualTo(Integer value) {
+            addCriterion("total_d_count <>", value, "totalDCount");
             return (Criteria) this;
         }
 
-        public Criteria andTotaldcountGreaterThan(Integer value) {
-            addCriterion("totalDCount >", value, "totaldcount");
+        public Criteria andTotalDCountGreaterThan(Integer value) {
+            addCriterion("total_d_count >", value, "totalDCount");
             return (Criteria) this;
         }
 
-        public Criteria andTotaldcountGreaterThanOrEqualTo(Integer value) {
-            addCriterion("totalDCount >=", value, "totaldcount");
+        public Criteria andTotalDCountGreaterThanOrEqualTo(Integer value) {
+            addCriterion("total_d_count >=", value, "totalDCount");
             return (Criteria) this;
         }
 
-        public Criteria andTotaldcountLessThan(Integer value) {
-            addCriterion("totalDCount <", value, "totaldcount");
+        public Criteria andTotalDCountLessThan(Integer value) {
+            addCriterion("total_d_count <", value, "totalDCount");
             return (Criteria) this;
         }
 
-        public Criteria andTotaldcountLessThanOrEqualTo(Integer value) {
-            addCriterion("totalDCount <=", value, "totaldcount");
+        public Criteria andTotalDCountLessThanOrEqualTo(Integer value) {
+            addCriterion("total_d_count <=", value, "totalDCount");
             return (Criteria) this;
         }
 
-        public Criteria andTotaldcountIn(List<Integer> values) {
-            addCriterion("totalDCount in", values, "totaldcount");
+        public Criteria andTotalDCountIn(List<Integer> values) {
+            addCriterion("total_d_count in", values, "totalDCount");
             return (Criteria) this;
         }
 
-        public Criteria andTotaldcountNotIn(List<Integer> values) {
-            addCriterion("totalDCount not in", values, "totaldcount");
+        public Criteria andTotalDCountNotIn(List<Integer> values) {
+            addCriterion("total_d_count not in", values, "totalDCount");
             return (Criteria) this;
         }
 
-        public Criteria andTotaldcountBetween(Integer value1, Integer value2) {
-            addCriterion("totalDCount between", value1, value2, "totaldcount");
+        public Criteria andTotalDCountBetween(Integer value1, Integer value2) {
+            addCriterion("total_d_count between", value1, value2, "totalDCount");
             return (Criteria) this;
         }
 
-        public Criteria andTotaldcountNotBetween(Integer value1, Integer value2) {
-            addCriterion("totalDCount not between", value1, value2, "totaldcount");
+        public Criteria andTotalDCountNotBetween(Integer value1, Integer value2) {
+            addCriterion("total_d_count not between", value1, value2, "totalDCount");
             return (Criteria) this;
         }
     }

@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.kmdms.pojo.Message" >
     <id column="message_id" property="messageId" jdbcType="VARCHAR" />
     <result column="content" property="content" jdbcType="VARCHAR" />
-    <result column="isRead" property="isread" jdbcType="BIT" />
+    <result column="is_read" property="isRead" jdbcType="BIT" />
     <result column="message_date" property="messageDate" jdbcType="DATE" />
     <result column="stu_id" property="stuId" jdbcType="VARCHAR" />
   </resultMap>
@@ -67,7 +67,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    message_id, content, isRead, message_date, stu_id
+    message_id, content, is_read, message_date, stu_id
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kmdms.pojo.MessageExample" >
     select
@@ -100,9 +100,9 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.kmdms.pojo.Message" >
-    insert into message (message_id, content, isRead, 
+    insert into message (message_id, content, is_read, 
       message_date, stu_id)
-    values (#{messageId,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{isread,jdbcType=BIT}, 
+    values (#{messageId,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{isRead,jdbcType=BIT}, 
       #{messageDate,jdbcType=DATE}, #{stuId,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.kmdms.pojo.Message" >
@@ -114,8 +114,8 @@
       <if test="content != null" >
         content,
       </if>
-      <if test="isread != null" >
-        isRead,
+      <if test="isRead != null" >
+        is_read,
       </if>
       <if test="messageDate != null" >
         message_date,
@@ -131,8 +131,8 @@
       <if test="content != null" >
         #{content,jdbcType=VARCHAR},
       </if>
-      <if test="isread != null" >
-        #{isread,jdbcType=BIT},
+      <if test="isRead != null" >
+        #{isRead,jdbcType=BIT},
       </if>
       <if test="messageDate != null" >
         #{messageDate,jdbcType=DATE},
@@ -157,8 +157,8 @@
       <if test="record.content != null" >
         content = #{record.content,jdbcType=VARCHAR},
       </if>
-      <if test="record.isread != null" >
-        isRead = #{record.isread,jdbcType=BIT},
+      <if test="record.isRead != null" >
+        is_read = #{record.isRead,jdbcType=BIT},
       </if>
       <if test="record.messageDate != null" >
         message_date = #{record.messageDate,jdbcType=DATE},
@@ -175,7 +175,7 @@
     update message
     set message_id = #{record.messageId,jdbcType=VARCHAR},
       content = #{record.content,jdbcType=VARCHAR},
-      isRead = #{record.isread,jdbcType=BIT},
+      is_read = #{record.isRead,jdbcType=BIT},
       message_date = #{record.messageDate,jdbcType=DATE},
       stu_id = #{record.stuId,jdbcType=VARCHAR}
     <if test="_parameter != null" >
@@ -188,8 +188,8 @@
       <if test="content != null" >
         content = #{content,jdbcType=VARCHAR},
       </if>
-      <if test="isread != null" >
-        isRead = #{isread,jdbcType=BIT},
+      <if test="isRead != null" >
+        is_read = #{isRead,jdbcType=BIT},
       </if>
       <if test="messageDate != null" >
         message_date = #{messageDate,jdbcType=DATE},
@@ -203,7 +203,7 @@
   <update id="updateByPrimaryKey" parameterType="com.kmdms.pojo.Message" >
     update message
     set content = #{content,jdbcType=VARCHAR},
-      isRead = #{isread,jdbcType=BIT},
+      is_read = #{isRead,jdbcType=BIT},
       message_date = #{messageDate,jdbcType=DATE},
       stu_id = #{stuId,jdbcType=VARCHAR}
     where message_id = #{messageId,jdbcType=VARCHAR}

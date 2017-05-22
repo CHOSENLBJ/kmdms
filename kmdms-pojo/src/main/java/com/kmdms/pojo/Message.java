@@ -7,7 +7,7 @@ public class Message {
 
     private String content;
 
-    private Boolean isread;
+    private Boolean isRead;
 
     private Date messageDate;
 
@@ -29,12 +29,12 @@ public class Message {
         this.content = content == null ? null : content.trim();
     }
 
-    public Boolean getIsread() {
-        return isread;
+    public Boolean getIsRead() {
+        return isRead;
     }
 
-    public void setIsread(Boolean isread) {
-        this.isread = isread;
+    public void setIsRead(Boolean isRead) {
+        this.isRead = isRead;
     }
 
     public Date getMessageDate() {

@@ -9,7 +9,7 @@
     <result column="stu_department" property="stuDepartment" jdbcType="VARCHAR" />
     <result column="stu_class" property="stuClass" jdbcType="VARCHAR" />
     <result column="stu_sex" property="stuSex" jdbcType="VARCHAR" />
-    <result column="bedNum" property="bednum" jdbcType="INTEGER" />
+    <result column="bed_num" property="bedNum" jdbcType="INTEGER" />
     <result column="dormitory_id" property="dormitoryId" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -71,7 +71,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    stu_id, stu_name, password, stu_college, stu_department, stu_class, stu_sex, bedNum, 
+    stu_id, stu_name, password, stu_college, stu_department, stu_class, stu_sex, bed_num, 
     dormitory_id
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kmdms.pojo.StudentExample" >
@@ -107,11 +107,11 @@
   <insert id="insert" parameterType="com.kmdms.pojo.Student" >
     insert into student (stu_id, stu_name, password, 
       stu_college, stu_department, stu_class, 
-      stu_sex, bedNum, dormitory_id
+      stu_sex, bed_num, dormitory_id
       )
     values (#{stuId,jdbcType=VARCHAR}, #{stuName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{stuCollege,jdbcType=VARCHAR}, #{stuDepartment,jdbcType=VARCHAR}, #{stuClass,jdbcType=VARCHAR}, 
-      #{stuSex,jdbcType=VARCHAR}, #{bednum,jdbcType=INTEGER}, #{dormitoryId,jdbcType=VARCHAR}
+      #{stuSex,jdbcType=VARCHAR}, #{bedNum,jdbcType=INTEGER}, #{dormitoryId,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.kmdms.pojo.Student" >
@@ -138,8 +138,8 @@
       <if test="stuSex != null" >
         stu_sex,
       </if>
-      <if test="bednum != null" >
-        bedNum,
+      <if test="bedNum != null" >
+        bed_num,
       </if>
       <if test="dormitoryId != null" >
         dormitory_id,
@@ -167,8 +167,8 @@
       <if test="stuSex != null" >
         #{stuSex,jdbcType=VARCHAR},
       </if>
-      <if test="bednum != null" >
-        #{bednum,jdbcType=INTEGER},
+      <if test="bedNum != null" >
+        #{bedNum,jdbcType=INTEGER},
       </if>
       <if test="dormitoryId != null" >
         #{dormitoryId,jdbcType=VARCHAR},
@@ -205,8 +205,8 @@
       <if test="record.stuSex != null" >
         stu_sex = #{record.stuSex,jdbcType=VARCHAR},
       </if>
-      <if test="record.bednum != null" >
-        bedNum = #{record.bednum,jdbcType=INTEGER},
+      <if test="record.bedNum != null" >
+        bed_num = #{record.bedNum,jdbcType=INTEGER},
       </if>
       <if test="record.dormitoryId != null" >
         dormitory_id = #{record.dormitoryId,jdbcType=VARCHAR},
@@ -225,7 +225,7 @@
       stu_department = #{record.stuDepartment,jdbcType=VARCHAR},
       stu_class = #{record.stuClass,jdbcType=VARCHAR},
       stu_sex = #{record.stuSex,jdbcType=VARCHAR},
-      bedNum = #{record.bednum,jdbcType=INTEGER},
+      bed_num = #{record.bedNum,jdbcType=INTEGER},
       dormitory_id = #{record.dormitoryId,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -252,8 +252,8 @@
       <if test="stuSex != null" >
         stu_sex = #{stuSex,jdbcType=VARCHAR},
       </if>
-      <if test="bednum != null" >
-        bedNum = #{bednum,jdbcType=INTEGER},
+      <if test="bedNum != null" >
+        bed_num = #{bedNum,jdbcType=INTEGER},
       </if>
       <if test="dormitoryId != null" >
         dormitory_id = #{dormitoryId,jdbcType=VARCHAR},
@@ -269,7 +269,7 @@
       stu_department = #{stuDepartment,jdbcType=VARCHAR},
       stu_class = #{stuClass,jdbcType=VARCHAR},
       stu_sex = #{stuSex,jdbcType=VARCHAR},
-      bedNum = #{bednum,jdbcType=INTEGER},
+      bed_num = #{bedNum,jdbcType=INTEGER},
       dormitory_id = #{dormitoryId,jdbcType=VARCHAR}
     where stu_id = #{stuId,jdbcType=VARCHAR}
   </update>
