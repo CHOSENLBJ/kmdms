@@ -51,10 +51,9 @@
 		<!-- 后缀 -->
 		<property name="suffix" value=".jsp"/>
 	</bean>
-	
-	<!-- 配置统一异常处理器
-	<bean class="cn.srp.exception.resolver.SRPExceptionResolver"></bean>
-	 -->
+
+	<!-- 配置统一异常处理器 -->
+	<bean class="com.kmdms.common.exception.resolver.KMDMSExceptionResolver"></bean>
 
 	<!-- 文件上传解析器 -->
 	<!--<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
