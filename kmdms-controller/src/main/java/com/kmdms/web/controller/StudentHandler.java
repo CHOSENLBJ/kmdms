@@ -32,7 +32,18 @@ public class StudentHandler{
 	 */
 	@RequestMapping("/login")
 	public String login(StudentCustom studentCustom, HttpServletRequest request) throws Exception{
-		studentService.loginCheck(studentCustom);
+		studentCustom = studentService.loginCheck(studentCustom);
+		//将studentCustom放入session中
+		request.getSession().setAttribute("session_stu", studentCustom);
+		return "redirect:index.action";
+	}
+
+	/**
+	 * 跳转到主页
+	 * @return
+	 */
+	@RequestMapping("/index")
+	public String index(){
 		return "success";
 	}
 }

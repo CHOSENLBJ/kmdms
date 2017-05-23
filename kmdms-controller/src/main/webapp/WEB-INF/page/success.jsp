@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	success!
+	success!welcome ${sessionScope.session_stu.stuId}
 </body>
 </html>
