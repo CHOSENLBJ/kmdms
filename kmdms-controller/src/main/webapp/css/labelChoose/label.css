@@ -1,0 +1,55 @@
+body{
+	background-color: #EEE ;
+}
+
+#kmdms_labelList{
+	background: url(../../img/label_bg.jpg);
+	background-size: 100%;
+	height: 220px;
+	position: relative;
+}
+
+#kmdms_labelList .kmdms_labelList_page{
+}
+
+.kmdms_labelList_label{
+	filter:alpha(opacity=0); /*IE滤镜，透明度50%*/
+	-moz-opacity:0; /*Firefox私有，透明度50%*/
+	opacity:0;/*其他，透明度50%*/
+	cursor: pointer;
+	position: absolute;
+	text-align: center;
+	color: #FFF;
+	padding: 0 10px;
+	line-height: 30px;
+	height: 30px;
+	background: #3EABB8;
+	margin: 0;
+	border-radius:8px ;
+	z-index: 1;
+}
+
+#kmdms_labelList label:hover{
+	z-index: 2;
+}
+
+#kmdms_labelList #kmdms_labelList_switch{
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	height: 20px;
+	text-align: center;
+}
+#kmdms_labelList #kmdms_labelList_switch span{
+	margin: 5px;
+	cursor: pointer;
+	border-radius: 5px;
+	background-color:#FFF;
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+}
+#kmdms_labelList #kmdms_labelList_switch span:hover{
+	background-color:#000;
+	
+}

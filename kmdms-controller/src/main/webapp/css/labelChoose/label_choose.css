@@ -1,0 +1,60 @@
+#kmdms_choose{
+	margin-top: 50px;
+}
+
+
+#kmdms_choose_label{
+}
+
+#kmdms_choose_label_frame{
+	overflow: auto;
+	margin: 0 auto;
+	padding: 10px;
+	box-shadow: 1px 1px 3px 3px #CCC;
+	height: 200px;
+	background-color: #FFF;
+}
+
+#kmdms_choose_label_frame div{
+	padding: 7px;
+}
+
+#kmdms_choose_label_frame img{
+	cursor: pointer;
+	vertical-align: top;
+	width: 10px;
+	height: 10px;
+	display: none;;
+	margin-left: 5px;
+}
+
+#kmdms_choose_label_createAndSubmit div{
+	margin-top: 30px;
+}
+
+#kmdms_choose_label_createAndSubmit button{
+	width: 60%;
+	font-size: 16px;
+}
+
+#myLabel input[type=text]{
+	text-align: center;
+	border: none;
+	outline: none;
+	border-bottom: 1px #AAA solid;
+}
+#myLabel  .modal-body{
+	text-align: center;
+}
+
+#myLabel .modal-header,#myLabel .modal-footer{
+	border: none;
+}
+
+#kmdms_choose_rule{
+	padding: 10px 30px;
+}
+
+#kmdms_choose_rule strong {
+	font-size: 16px;
+}
