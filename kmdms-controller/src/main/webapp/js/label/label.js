@@ -130,7 +130,7 @@ $(document).ready(function() {
 	//用户取消所选标签
 	var deleteLabel = function(){
 		$('#kmdms_choose_label_frame img').on('click',function(){
-			$(this).parents('#kmdms_choose_label_frame').append('<div><label><span></span></label><img src=img/close.png></div>');
+			$(this).parents('#kmdms_choose_label_frame').append('<div><label><span></span></label><img src=' + projectName + + 'img/close.png></div>');
 			$(this).parent().remove();
 			i--;
 			$('#kmdms_choose_label_frame img').unbind('click');
@@ -150,7 +150,7 @@ $(document).ready(function() {
 		$('#myLabel').modal('hide');
 
         var createLabel = $("#create_label").val();
-        $.post("/kmdms/label/createLabel.action", {createLabel : createLabel}, function(backData, textStatus, ajax){
+        $.post( projectName + "kmdms/label/createLabel.action", {createLabel : createLabel}, function(backData, textStatus, ajax){
             var response_text = ajax.responseText;
             if(response_text != "EXISTS")
 			{

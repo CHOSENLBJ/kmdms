@@ -95,8 +95,9 @@
 		  </div>
 		</div>		
 		<script src="${pageContext.request.contextPath }/js/common/bootstrap.min.js"></script>
+		<input id="projectName" type="hidden" value="${pageContext.request.contextPath }">
 		<script type="text/javascript">
-			$("#myLabel_create").click(function(){});
+			var projectName = document.getElementById("projectName").value;
 		</script>
 	</body>
 </html>
