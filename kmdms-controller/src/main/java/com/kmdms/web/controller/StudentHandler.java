@@ -44,6 +44,6 @@ public class StudentHandler{
 	 */
 	@RequestMapping("/index")
 	public String index(){
-		return "success";
+		return "labelChoose";
 	}
 }

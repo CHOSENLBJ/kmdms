@@ -148,21 +148,35 @@ $(document).ready(function() {
 	//用户自定义标签
 	$('#myLabel #myLabel_create').on('click',function(){
 		$('#myLabel').modal('hide');
-		//创建并加入
-		$('.kmdms_labelList_page:eq(0)').append('<label class=kmdms_labelList_label><span>小星星</span></label>');
-		var $lastLabel = $('.kmdms_labelList_page:eq(0) label:last');
-		var x = ($(window).width() - parseInt($lastLabel.css('width'))) * Math.random();
-		var y = (parseInt($('#kmdms_labelList').css('height')) - 50) * Math.random();
-		var color = colors[Math.ceil(Math.random() * colors.length)];
-		$lastLabel.css({
-			'top': y + 'px',
-			'left': x + 'px',
-			'background-color': '#' + color,
-			'box-shadow' : '1px 1px 3px 3px #' + color
-		}).fadeTo(2000,0.9);
-		$lastLabel.on('mousedown',function(){
-			labelMove($lastLabel);
-		});
+
+        var createLabel = $("#create_label").val();
+        $.post("/kmdms/label/createLabel.action", {createLabel : createLabel}, function(backData, textStatus, ajax){
+            var response_text = ajax.responseText;
+            if(response_text != "EXISTS")
+			{
+				var labelJS = eval("(" + ajax.responseText + ")");
+				//创建并加入
+				$('.kmdms_labelList_page:eq(0)').append('<label class=kmdms_labelList_label><span>'+ labelJS.content+'</span></label>');
+				var $lastLabel = $('.kmdms_labelList_page:eq(0) label:last');
+				var x = ($(window).width() - parseInt($lastLabel.css('width'))) * Math.random();
+				var y = (parseInt($('#kmdms_labelList').css('height')) - 50) * Math.random();
+				var color = colors[Math.ceil(Math.random() * colors.length)];
+				$lastLabel.css({
+					'top': y + 'px',
+					'left': x + 'px',
+					'background-color': '#' + color,
+					'box-shadow' : '1px 1px 3px 3px #' + color
+				}).fadeTo(2000,0.9);
+				$lastLabel.on('mousedown',function(){
+					labelMove($lastLabel);
+				});
+				alert("创建成功！");
+            } else{
+            	alert("该标签已存在或存在与该标签含义近似的标签，请换一个标签！");
+			}
+        });
+
+
 	});
 	
 });

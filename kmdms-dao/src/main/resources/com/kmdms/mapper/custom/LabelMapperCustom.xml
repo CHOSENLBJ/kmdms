@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kmdms.mapper.custom.LabelMapperCustom" >
+  <resultMap id="BaseResultMap" type="com.kmdms.pojo.custom.LabelCustom" >
+    <id column="label_id" property="labelId" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <select id="selectAllLabel" resultMap="BaseResultMap">
+    SELECT
+            label_id, content
+    FROM
+            label;
+  </select>
+
+  <select id="selectIfExistsLabel" parameterType="string" resultMap="BaseResultMap" >
+    SELECT
+            label_id, content
+    FROM
+            label
+    WHERE
+            content = #{content};
+  </select>
+
+</mapper>

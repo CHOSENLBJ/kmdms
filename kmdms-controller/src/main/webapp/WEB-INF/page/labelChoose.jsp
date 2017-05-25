@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head> 
@@ -9,7 +9,7 @@
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	
-	<link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath }/css/bootstrap/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/labelChoose/label.css" />
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/labelChoose/label_choose.css" />
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/button/button.css" />
@@ -20,35 +20,32 @@
 		<!--标签-->
 		<div id="kmdms_labelList">
 			<!--一页标签-->
-			<div class="kmdms_labelList_page">
-				<label class="kmdms_labelList_label"><span>小星星</span></label>
-				<label class="kmdms_labelList_label"><span>小星星</span></label>
-				<label class="kmdms_labelList_label"><span>小星星</span></label>
-				<label class="kmdms_labelList_label"><span>小星星</span></label>
-				<label class="kmdms_labelList_label"><span>小星星</span></label>
-				<label class="kmdms_labelList_label"><span>小星星</span></label>
-			</div>
-			<div class="kmdms_labelList_page">
-				<label class="kmdms_labelList_label"><span>小星星</span></label>
-				<label class="kmdms_labelList_label"><span>小星星</span></label>
-				<label class="kmdms_labelList_label"><span>小星星</span></label>
-				<label class="kmdms_labelList_label"><span>小星星</span></label>
-				<label class="kmdms_labelList_label"><span>小星星</span></label>
-				<label class="kmdms_labelList_label"><span>小星星</span></label>
-			</div>
-			<div class="kmdms_labelList_page">
-				<label class="kmdms_labelList_label"><span>小星星</span></label>
-				<label class="kmdms_labelList_label"><span>小星星</span></label>
-				<label class="kmdms_labelList_label"><span>小星星</span></label>
-				<label class="kmdms_labelList_label"><span>小星星</span></label>
-				<label class="kmdms_labelList_label"><span>小星星</span></label>
-				<label class="kmdms_labelList_label"><span>小星星</span></label>
-			</div>
+			<c:forEach items="${labelList}" var="label" varStatus="status">
+				<c:choose>
+					<c:when test="${(status.index + 1) % 6 == 1}">
+						<div class="kmdms_labelList_page">
+							<label class="kmdms_labelList_label"><span>${label.content}</span></label>
+					</c:when>
+					<c:otherwise>
+						<c:choose>
+							<c:when test="${(status.index + 1) % 6 == 0 && (status.index + 1) / 6 >= 1  || (status.index + 1) == labelList.size()}">
+									<label class="kmdms_labelList_label"><span>${label.content}</span></label>
+								</div>
+							</c:when>
+							<c:otherwise>
+								<label class="kmdms_labelList_label"><span>${label.content}</span></label>
+							</c:otherwise>
+						</c:choose>
+					</c:otherwise>
+				</c:choose>
+			</c:forEach>
+
 			<!--翻页-->
 			<div id="kmdms_labelList_switch">
-				<span data-pc="1"></span>
-				<span data-pc="2"></span>
-				<span data-pc="3"></span>
+				<c:forEach begin="1" end="${(labelList.size() + 6 -1) / 6}" varStatus="status">
+					<span data-pc="${status.index + 1}"></span>
+				</c:forEach>
+
 			</div>
 		</div>
 		
@@ -89,14 +86,17 @@
 		        <h4 class="modal-title" id="myModalLabel">自定义标签</h4>
 		      </div>
 		      <div class="modal-body">
-		        <input type="text" placeholder="请输入你的要求" />
+		        <input type="text" id="create_label" placeholder="请输入你的要求" />
 		      </div>
 		      <div class="modal-footer">
-		        <button id="myLabel_create" type="button" class="btn btn-primary" >创建</button>
+		        <button id="myLabel_create" type="button" class="btn btn-primary">创建</button>
 		      </div>
 		    </div>
 		  </div>
 		</div>		
 		<script src="${pageContext.request.contextPath }/js/common/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			$("#myLabel_create").click(function(){});
+		</script>
 	</body>
 </html>
