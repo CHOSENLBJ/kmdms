@@ -45,11 +45,11 @@ $(document).ready(function() {
 		//鼠标拖拽
 		thisLabel.on('mousemove', function(e) {
 			if (isDown) {
-				e = e || window.event
+				e = e || window.event;
 				if(isInit){
 				x_init = e.clientX; //鼠标第一次移动时获取x轴坐标，为了确保浮动图标不会晃动，进行了精确的定位
 				y_init = e.clientY; //鼠标第一次移动时获取y轴坐标
-				isInit = false
+				isInit = false;
 				}
 				var x = e.clientX; //鼠标移动时获取x轴坐标
 				var y = e.clientY; //鼠标移动时获取y轴坐标
@@ -102,6 +102,9 @@ $(document).ready(function() {
 							$(this).attr('data-id',date);
 							i++;
 							//隐藏标签
+							$(this).css({
+								'top' : '-40px'
+							});
 							$(this).hide();
 						}else{
 							$(this).css({

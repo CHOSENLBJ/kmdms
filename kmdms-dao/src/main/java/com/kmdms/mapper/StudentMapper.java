@@ -3,8 +3,6 @@ package com.kmdms.mapper;
 import com.kmdms.pojo.Student;
 import com.kmdms.pojo.StudentExample;
 import java.util.List;
-
-import com.kmdms.pojo.custom.StudentCustom;
 import org.apache.ibatis.annotations.Param;
 
 public interface StudentMapper {

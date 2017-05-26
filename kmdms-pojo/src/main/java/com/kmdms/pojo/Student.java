@@ -19,6 +19,12 @@ public class Student {
 
     private String dormitoryId;
 
+    private String qq;
+
+    private String address;
+
+    private String note;
+
     public String getStuId() {
         return stuId;
     }
@@ -89,5 +95,29 @@ public class Student {
 
     public void setDormitoryId(String dormitoryId) {
         this.dormitoryId = dormitoryId == null ? null : dormitoryId.trim();
+    }
+
+    public String getQq() {
+        return qq;
+    }
+
+    public void setQq(String qq) {
+        this.qq = qq == null ? null : qq.trim();
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address == null ? null : address.trim();
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note == null ? null : note.trim();
     }
 }
