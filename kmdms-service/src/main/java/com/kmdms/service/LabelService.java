@@ -24,4 +24,12 @@ public interface LabelService {
      * @throws Exception
      */
     LabelCustom createLabel(String createLabel) throws Exception;
+
+    /**
+     * 根据学生学号查询其选标签
+     * @param stuId
+     * @return
+     * @throws Exception
+     */
+    List<Label> findLabelsByStuId(String stuId) throws Exception;
 }

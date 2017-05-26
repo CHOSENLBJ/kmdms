@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.kmdms.mapper.custom.LabelMapperCustom" >
-  <resultMap id="BaseResultMap" type="com.kmdms.pojo.custom.LabelCustom" >
+  <resultMap id="BaseResultMap" type="com.kmdms.pojo.Label" >
     <id column="label_id" property="labelId" jdbcType="VARCHAR" />
     <result column="content" property="content" jdbcType="VARCHAR" />
   </resultMap>
@@ -20,6 +20,19 @@
             label
     WHERE
             content = #{content};
+  </select>
+
+  <select id="selectLabelsByStuId" parameterType="string" resultMap="BaseResultMap" >
+    SELECT
+             l.label_id, l.content
+    FROM
+             stu_lab sl LEFT JOIN label l
+    ON
+             sl.label_id = l.label_id
+    WHERE
+             sl.stu_id = #{stuId}
+    ORDER BY
+             sl.weight ASC
   </select>
 
 </mapper>

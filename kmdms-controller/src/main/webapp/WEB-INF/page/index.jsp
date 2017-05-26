@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en-US">
 <head>
@@ -20,7 +20,7 @@
 			height: 40px;
 		}
 		.index_myRoommate_information{
-			font-size: 12px;
+			font-size: 12pxstu;
 		}
 		.index_myRoommate_information div{
 			margin-left: 15px;
@@ -33,7 +33,7 @@
 		<div class="wrapper">
 			<div class="user" style="cursor: auto;">
 				<img src="${pageContext.request.contextPath }/img/user_avatar.png" alt="user_avatar" class="user_avatar" />
-				<span class="label">141110001XXX&nbsp;<a href="#">[退出]</a></span>
+				<span class="label">${sessionScope.session_stu.stuId}${sessionScope.session_stu.stuName}&nbsp;<a href="#">[退出]</a></span>
 			</div>
 		</div>
 	</div>
@@ -42,7 +42,7 @@
 		<div class="wrapper">
 			<div class="logo">
 				<a href="#" title="Kanrisha Home">
-					<img src="img/kanrisha_logo.png" alt="kanrisha_logo" />
+					<img src="${pageContext.request.contextPath}/img/kanrisha_logo.png" alt="kanrisha_logo" />
 				</a>
 			</div>
 		</div>
@@ -53,25 +53,25 @@
 		<aside class="sidebar">
 			<ul class="tab_nav" id="index_tab">
 				<li class="active_tab i_22_forms">
-					<a href="javaSrcipt:void(0)" title="Kit elements">
+					<a href="#" title="Kit elements">
 						<span class="tab_label">我的标签</span>
 						<span class="tab_info">分配宿舍的依据</span>
 					</a>
 				</li>
 				<li class="i_32_dashboard">
-					<a href="javaSrcipt:void(0)" title="General Info">
+					<a href="#" title="General Info">
 						<span class="tab_label">我的信息</span>
 						<span class="tab_info">设置信息</span>
 					</a>
 				</li>
 				<li class="i_32_inbox">
-					<a href="javaSrcipt:void(0)" title="Your Messages">
+					<a href="#" title="Your Messages">
 						<span class="tab_label">我的通知</span>
 						<span class="tab_info">宿舍最新动态</span>
 					</a>
 				</li>
 				<li class="	i_32_ui">
-					<a href="javaSrcipt:void(0)" title="Visual Data">
+					<a href="#" title="Visual Data">
 						<span class="tab_label">我的舍友</span>
 						<span class="tab_info">了解一下舍友</span>
 					</a>
@@ -88,9 +88,14 @@
 					</div>
 					<div class="widget_contents noPadding">
 							<div class="line_grid">
-								<div class="g_12"><span class="label">1.小星星</span></div>
+								<c:if test="${sessionScope.session_stu.labelList != null}">
+									<c:forEach items="${sessionScope.session_stu.labelList}" var="label" varStatus="status">
+										<div class="g_12"><span class="label">${status.index + 1}.${label.content}</span></div>
+									</c:forEach>
+								</c:if>
+								<%--<div class="g_12"><span class="label">1.小星星</span></div>
 								<div class="g_12"><span class="label">2.小星星</span></div>
-								<div class="g_12"><span class="label">3.小星星</span></div>
+								<div class="g_12"><span class="label">3.小星星</span></div>--%>
 								<div class="g_12"><a style="float: right;font-size: 12px;" href="#">去修改/去选择</a></div>
 							</div>
 					</div>

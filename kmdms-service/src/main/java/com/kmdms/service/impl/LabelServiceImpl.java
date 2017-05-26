@@ -1,6 +1,7 @@
 package com.kmdms.service.impl;
 
 import com.kmdms.mapper.custom.LabelMapperCustom;
+import com.kmdms.pojo.Label;
 import com.kmdms.pojo.custom.LabelCustom;
 import com.kmdms.service.LabelService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,5 +45,10 @@ public class LabelServiceImpl implements LabelService {
         labelMapperCustom.insert(labelCustom);
 
         return labelCustom;//若不创建则返回null！
+    }
+
+    @Override
+    public List<Label> findLabelsByStuId(String stuId) throws Exception {
+        return labelMapperCustom.selectLabelsByStuId(stuId);
     }
 }
