@@ -142,7 +142,7 @@
 					<div class="widget_contents noPadding">
 							<div class="line_grid">
 								<div class="g_12"><img src="${pageContext.request.contextPath }/img/Icons/22/i_22_inbox.png">&nbsp;<span class="label">你已经被分配到东区110宿舍</span><span class="label fr">2012-12-12 00:00</span></div>
-								<div class="g_12"><img src="${pageContext.request.contextPath }/img/Icons/22/i_22_inbox.png">&nbsp;<span class="label">你已经被分配到东区110宿舍</span><span class="label fr">2012-12-12 00:00</span></div>
+								<div class="g_12"><img src="${pageContext.request.contextPath }/img/Icons/22/i_22_inbox_open.png">&nbsp;<span class="label">你已经被分配到东区110宿舍</span><span class="label fr">2012-12-12 00:00</span></div>
 							</div>
 					</div>
 				</div>

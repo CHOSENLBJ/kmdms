@@ -11,6 +11,9 @@
     <result column="stu_sex" property="stuSex" jdbcType="VARCHAR" />
     <result column="bed_num" property="bedNum" jdbcType="INTEGER" />
     <result column="dormitory_id" property="dormitoryId" jdbcType="VARCHAR" />
+    <result column="qq" property="qq" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="note" property="note" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -72,7 +75,7 @@
   </sql>
   <sql id="Base_Column_List" >
     stu_id, stu_name, password, stu_college, stu_department, stu_class, stu_sex, bed_num, 
-    dormitory_id
+    dormitory_id, qq, address, note
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.kmdms.pojo.StudentExample" >
     select
@@ -107,12 +110,12 @@
   <insert id="insert" parameterType="com.kmdms.pojo.Student" >
     insert into student (stu_id, stu_name, password, 
       stu_college, stu_department, stu_class, 
-      stu_sex, bed_num, dormitory_id
-      )
+      stu_sex, bed_num, dormitory_id, 
+      qq, address, note)
     values (#{stuId,jdbcType=VARCHAR}, #{stuName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{stuCollege,jdbcType=VARCHAR}, #{stuDepartment,jdbcType=VARCHAR}, #{stuClass,jdbcType=VARCHAR}, 
-      #{stuSex,jdbcType=VARCHAR}, #{bedNum,jdbcType=INTEGER}, #{dormitoryId,jdbcType=VARCHAR}
-      )
+      #{stuSex,jdbcType=VARCHAR}, #{bedNum,jdbcType=INTEGER}, #{dormitoryId,jdbcType=VARCHAR}, 
+      #{qq,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{note,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.kmdms.pojo.Student" >
     insert into student
@@ -144,6 +147,15 @@
       <if test="dormitoryId != null" >
         dormitory_id,
       </if>
+      <if test="qq != null" >
+        qq,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="note != null" >
+        note,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="stuId != null" >
@@ -172,6 +184,15 @@
       </if>
       <if test="dormitoryId != null" >
         #{dormitoryId,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null" >
+        #{note,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -211,6 +232,15 @@
       <if test="record.dormitoryId != null" >
         dormitory_id = #{record.dormitoryId,jdbcType=VARCHAR},
       </if>
+      <if test="record.qq != null" >
+        qq = #{record.qq,jdbcType=VARCHAR},
+      </if>
+      <if test="record.address != null" >
+        address = #{record.address,jdbcType=VARCHAR},
+      </if>
+      <if test="record.note != null" >
+        note = #{record.note,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -226,7 +256,10 @@
       stu_class = #{record.stuClass,jdbcType=VARCHAR},
       stu_sex = #{record.stuSex,jdbcType=VARCHAR},
       bed_num = #{record.bedNum,jdbcType=INTEGER},
-      dormitory_id = #{record.dormitoryId,jdbcType=VARCHAR}
+      dormitory_id = #{record.dormitoryId,jdbcType=VARCHAR},
+      qq = #{record.qq,jdbcType=VARCHAR},
+      address = #{record.address,jdbcType=VARCHAR},
+      note = #{record.note,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -258,6 +291,15 @@
       <if test="dormitoryId != null" >
         dormitory_id = #{dormitoryId,jdbcType=VARCHAR},
       </if>
+      <if test="qq != null" >
+        qq = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null" >
+        note = #{note,jdbcType=VARCHAR},
+      </if>
     </set>
     where stu_id = #{stuId,jdbcType=VARCHAR}
   </update>
@@ -270,7 +312,10 @@
       stu_class = #{stuClass,jdbcType=VARCHAR},
       stu_sex = #{stuSex,jdbcType=VARCHAR},
       bed_num = #{bedNum,jdbcType=INTEGER},
-      dormitory_id = #{dormitoryId,jdbcType=VARCHAR}
+      dormitory_id = #{dormitoryId,jdbcType=VARCHAR},
+      qq = #{qq,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      note = #{note,jdbcType=VARCHAR}
     where stu_id = #{stuId,jdbcType=VARCHAR}
   </update>
 </mapper>
