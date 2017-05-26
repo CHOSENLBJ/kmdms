@@ -2,6 +2,7 @@ package com.kmdms.web.controller;
 
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import com.kmdms.pojo.Label;
 import com.kmdms.pojo.custom.StudentCustom;
@@ -55,4 +56,24 @@ public class StudentHandler{
 	public String index(){
 		return "index";
 	}
+
+    /**
+     * 退出
+     * @return
+     */
+	@RequestMapping("/quit")
+	public String quit(HttpSession session){
+        session.invalidate();
+        return "redirect:toLogin.action";
+    }
+
+    /**
+     * 去登陆页面
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/toLogin")
+    public String toLogin() throws Exception{
+        return "login";
+    }
 }

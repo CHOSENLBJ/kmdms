@@ -33,7 +33,7 @@
 		<div class="wrapper">
 			<div class="user" style="cursor: auto;">
 				<img src="${pageContext.request.contextPath }/img/user_avatar.png" alt="user_avatar" class="user_avatar" />
-				<span class="label">${sessionScope.session_stu.stuId}${sessionScope.session_stu.stuName}&nbsp;<a href="#">[退出]</a></span>
+				<span class="label">${sessionScope.session_stu.stuId}${sessionScope.session_stu.stuName}&nbsp;<a href="${pageContext.request.contextPath}/student/quit.action">[退出]</a></span>
 			</div>
 		</div>
 	</div>
@@ -128,7 +128,7 @@
 							<div class="line_grid">
 								<div class="g_2"><span class="label">保　存</span></div>
 								<div class="g_9">
-									<input type="submit" class="simple_buttons" />
+									<input type="submit" class="simple_buttons" value="提交" />
 								</div>
 							</div>
 						</form>
