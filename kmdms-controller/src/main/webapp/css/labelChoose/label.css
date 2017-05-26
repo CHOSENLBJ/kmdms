@@ -53,3 +53,20 @@ body{
 	background-color:#000;
 	
 }
+
+.kmdms_choose_label_unit{
+	filter:alpha(opacity=90); /*IE滤镜，透明度50%*/
+	-moz-opacity:0.9; /*Firefox私有，透明度50%*/
+	opacity:0.9;/*其他，透明度50%*/
+	cursor: pointer;
+	position: absolute;
+	text-align: center;
+	color: #FFF;
+	margin: 0 10px;
+	line-height: 30px;
+	height: 30px;
+	background: #3EABB8;
+	margin: 0;
+	border-radius:8px ;
+	z-index: 1;
+}

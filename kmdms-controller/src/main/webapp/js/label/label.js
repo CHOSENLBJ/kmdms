@@ -148,9 +148,8 @@ $(document).ready(function() {
 	//用户自定义标签
 	$('#myLabel #myLabel_create').on('click',function(){
 		$('#myLabel').modal('hide');
-
         var createLabel = $("#create_label").val();
-        $.post( projectName + "kmdms/label/createLabel.action", {createLabel : createLabel}, function(backData, textStatus, ajax){
+        $.post( projectName + "/label/createLabel.action", {createLabel : createLabel}, function(backData, textStatus, ajax){
             var response_text = ajax.responseText;
             if(response_text != "EXISTS")
 			{
