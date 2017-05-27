@@ -24,7 +24,7 @@
 				<c:choose>
 					<c:when test="${(status.index + 1) % 6 == 1}">
 						<div class="kmdms_labelList_page">
-							<label class="kmdms_labelList_label"><span>${label.content}</span></label>
+							<label data-myId="${label.labelId }" class="kmdms_labelList_label"><span>${label.content}</span></label>
 					</c:when>
 					<c:otherwise>
 						<c:choose>
@@ -56,9 +56,9 @@
 				<form>
 				<div class="col-md-4"></div>
 				<div id="kmdms_choose_label_frame" class="col-md-4">
-					<div><label><span></span></label><img src="${pageContext.request.contextPath }/img/close.png"></div>
-					<div><label><span></span></label><img src="${pageContext.request.contextPath }/img/close.png"></div>
-					<div><label><span></span></label><img src="${pageContext.request.contextPath }/img/close.png"></div>
+					<div><label data-myId=""><span></span></label><img src="${pageContext.request.contextPath }/img/close.png"></div>
+					<div><label data-myId=""><span></span></label><img src="${pageContext.request.contextPath }/img/close.png"></div>
+					<div><label data-myId=""><span></span></label><img src="${pageContext.request.contextPath }/img/close.png"></div>
 				</div>
 				<div id="kmdms_choose_label_createAndSubmit" class="col-md-4">
 					<div><button type="submit" class="button blue serif skew glossy">确定选择</button></div>
