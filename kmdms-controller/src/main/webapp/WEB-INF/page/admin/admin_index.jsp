@@ -47,18 +47,18 @@
 			<span class="icon-user"></span>标签管理
 		</h2>
 		<ul>
-			<li><a href="${pageContext.request.contextPath }/user/admin_user_editUI.action" target="right"><span
+			<li><a href="admin_label_edit.html" target="right"><span
 					class="icon-caret-right"></span>创建标签</a></li>
-			<li><a href="${pageContext.request.contextPath }/user/admin_user_list.action" target="right"><span
+			<li><a href="admin_label_list.html" target="right"><span
 					class="icon-caret-right"></span>标签列表</a></li>
 		</ul>
 		<h2>
 			<span class="icon-flag"></span>宿舍管理
 		</h2>
 		<ul>
-			<li><a href="admin_topic_edit.html" target="right"><span
+			<li><a href="admin_building_list.html" target="right"><span
 					class="icon-caret-right"></span>宿舍列表</a></li>
-			<li><a href="${pageContext.request.contextPath }/order/admin_order_list.action" target="right"><span
+			<li><a href="admin_building_edit.html" target="right"><span
 					class="icon-caret-right"></span>创建宿舍</a></li>
 		</ul>
 	</div>

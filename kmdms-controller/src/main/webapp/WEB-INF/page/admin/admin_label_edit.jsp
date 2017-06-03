@@ -19,28 +19,27 @@
 <script src="${pageContext.request.contextPath }/js/pintuer.js"></script>
 </head>
 <body>
-	<div class="panel admin-panel">
-		<div class="panel-head" id="add">
-			<strong><span class="icon-pencil-square-o"></span>标签</strong>
-		</div>
-		<div class="body-content">
-			<form method="post" class="form-x" action="">
-				<span class="form-group"> <span class="label"> <label>内容：</label>
-				</span> <span class="field"> <input type="text" class="input w50"
-						value="" name="title" data-validate="required:请输入内容" /> <span
-						class="tips"></span>
-				</span> 
-				</span> <br />
-				<div class="form-group">
-					<span class="label"> <label></label>
-					</span> <span class="field" style="float:right">
-						<button class="button bg-main icon-check-square-o" type="submit">
+<div class="panel admin-panel">
+  <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>标签</strong></div>
+  <div class="body-content">
+    <form method="post" class="form-x" action="user/admin_user_editByAdmin.action">  
+      <div class="form-group" >
+      	<span class="form-group">
+        <span class="label">
+          <label>标签内容：</label>
+        </span>
+        <span class="field">
+			<textarea id="label_content"></textarea>
+        </span>
+      </span>
+      <br />
+        <span class="field" style="float:right">
+          <button class="button bg-main icon-check-square-o" type="submit">
 							提交</button>
-					</span>
-				</div>
-			</form>
-		</div>
-	</div>
-
+        </span>
+      </div>
+    </form>
+  </div>
+</div>
 </body>
 </html>
