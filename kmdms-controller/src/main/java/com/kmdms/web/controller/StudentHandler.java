@@ -5,8 +5,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import com.kmdms.pojo.Label;
+import com.kmdms.pojo.Message;
 import com.kmdms.pojo.custom.StudentCustom;
 import com.kmdms.service.LabelService;
+import com.kmdms.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +26,9 @@ public class StudentHandler{
 
 	@Autowired
 	private LabelService labelService;
+
+	@Autowired
+	private MessageService messageService;
 	
 	@RequestMapping("/add")
 	public String addStudent(Student stu,HttpServletRequest request){
@@ -43,6 +48,9 @@ public class StudentHandler{
 		//补充student选择的标签
 		List<Label> labelList = labelService.findLabelsByStuId(studentCustom.getStuId());
 		studentCustom.setLabelList(labelList);
+		//补充student的通知
+		List<Message> messageList = messageService.findMessagesByStuId(studentCustom.getStuId());
+		studentCustom.setMessageList(messageList);
 		//将studentCustom放入session中
 		request.getSession().setAttribute("session_stu", studentCustom);
 		return "redirect:index.action";

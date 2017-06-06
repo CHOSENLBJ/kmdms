@@ -66,7 +66,7 @@
 				<div id="kmdms_choose_label_frame" class="col-md-4">
 					<c:if test="${sessionScope.session_stu.labelList != null}">
 						<c:forEach items="${sessionScope.session_stu.labelList}" var="label">
-							<div><label class="kmdms_choose_label_unit"><span>${label.content}</span></label><img src="${pageContext.request.contextPath }/img/close.png"></div>
+							<div><label data-myId="${label.labelId}"><span>${label.content}</span></label><img src="${pageContext.request.contextPath }/img/close.png"></div>
 						</c:forEach>
 					</c:if>
 				</div>

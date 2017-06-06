@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kmdms.mapper.custom.MessageMapperCustom" >
+  <resultMap id="BaseResultMap" type="com.kmdms.pojo.Message" >
+    <id column="message_id" property="messageId" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="is_read" property="isRead" jdbcType="BIT" />
+    <result column="message_date" property="messageDate" jdbcType="TIMESTAMP" />
+    <result column="stu_id" property="stuId" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="BaseResultMapCustom" type="com.kmdms.pojo.custom.MessageCustom" >
+    <id column="message_id" property="messageId" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="is_read" property="isRead" jdbcType="BIT" />
+    <result column="message_date" property="messageDate" jdbcType="TIMESTAMP" />
+    <result column="stu_id" property="stuId" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <select id="selectMessagesByStuId" parameterType="string" resultMap="BaseResultMap">
+    SELECT
+            message_id, content,
+            is_read, message_date,
+            stu_id
+    FROM
+            message
+    WHERE
+            stu_id = #{stuId}
+    ORDER BY
+            message_date DESC
+  </select>
+
+</mapper>

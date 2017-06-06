@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en-US">
 <head>
@@ -141,9 +142,17 @@
 					</div>
 					<div class="widget_contents noPadding">
 							<div class="line_grid">
-								<div class="g_12"><img src="${pageContext.request.contextPath }/img/Icons/22/i_22_inbox.png">&nbsp;<span class="label">你已经被分配到东区110宿舍</span><span class="label fr">2012-12-12 00:00</span></div>
-								<div class="g_12"><img src="${pageContext.request.contextPath }/img/Icons/22/i_22_inbox_open.png">&nbsp;<span class="label">你已经被分配到东区110宿舍</span><span class="label fr">2012-12-12 00:00</span></div>
-							</div>
+								<c:if test="${sessionScope.session_stu.messageList != null}">
+									<c:forEach items="${sessionScope.session_stu.messageList}" var="message">
+										<c:if test="${message.isRead == false}">
+											<div class="g_12"><img src="${pageContext.request.contextPath }/img/Icons/22/i_22_inbox.png">&nbsp;<span class="label">${message.content}</span><span class="label fr"><fmt:formatDate value="${message.messageDate}" pattern="yyyy-MM-dd HH:mm:ss" /></span></div>
+										</c:if>
+										<c:if test="${message.isRead == true}">
+											<div class="g_12"><img src="${pageContext.request.contextPath }/img/Icons/22/i_22_inbox_open.png">&nbsp;<span class="label">${message.content}</span><span class="label fr"><fmt:formatDate value="${message.messageDate}" pattern="yyyy-MM-dd HH:mm:ss" /></span></div>
+										</c:if>
+									</c:forEach>
+								</c:if>
+								</div>
 					</div>
 				</div>
 				<!--我的舍友-->

@@ -34,12 +34,12 @@ public class StudentServiceImpl implements StudentService{
 			if(studentCustom.getPassword().equals(sc.getPassword())){//若密码匹配
 				studentCustom = sc;
 			} else {//密码不匹配
-				KMDMSException exception = new KMDMSException("密码错误！", "index");
+				KMDMSException exception = new KMDMSException("密码错误！", "login");
 				exception.getModel().put("studentCustom", studentCustom);
 				throw exception;
 			}
 		} else {//查不出结果
-			KMDMSException exception = new KMDMSException("没有该学号的学生！", "index");
+			KMDMSException exception = new KMDMSException("没有该学号的学生！", "login");
 			exception.getModel().put("studentCustom", studentCustom);
 			throw exception;
 		}

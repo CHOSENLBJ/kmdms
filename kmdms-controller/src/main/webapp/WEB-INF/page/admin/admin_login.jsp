@@ -35,7 +35,7 @@
 		<div class="avtar">
 			<img src="${pageContext.request.contextPath }/img/admin/avtar.png" />
 		</div>
-		<form id="admin_forum" action="${pageContext.request.contextPath }/admin/admin_login.action" method="post">
+		<form id="admin_forum" action="${pageContext.request.contextPath }/admin/login.action" method="post">
 			<input name="username" id="admin_forum_account" type="text" class="text" value="账号" onFocus="this.value = '';"
 				onBlur="if (this.value == '') {this.value = '账号';}">
 			<div class="key">
