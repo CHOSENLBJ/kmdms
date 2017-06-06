@@ -26,7 +26,7 @@
 						<div class="kmdms_labelList_page">
 						<c:choose>
 							<c:when test="${(status.index + 1) == labelList.size()}">
-									<label class="kmdms_labelList_label"><span>${label.content}</span></label>
+									<label data-myId="${label.labelId }" class="kmdms_labelList_label"><span>${label.content}</span></label>
 								</div>
 							</c:when>
 							<c:otherwise>

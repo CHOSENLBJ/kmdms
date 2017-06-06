@@ -21,6 +21,24 @@ $(document).ready(function() {
 		});
 	});
 
+	//若用户有选择标签则显示
+	$('#kmdms_choose_label_frame label').each(function(index){
+		if($(this).text() != '') {
+			i++;
+			var color = colors[Math.ceil(Math.random() * colors.length)];
+			$('#kmdms_choose_label_frame img:eq('+ index +')').show();
+			$(this).attr('class','kmdms_labelList_label');
+			$(this).css({
+				'cursor' : 'auto',
+				'position' : 'static',
+				'background-color' : '#' + color,
+				'box-shadow' : '1px 1px 3px 3px ' + '#' + color,
+				'filter' : 'alpha(opacity=90)',
+				'-moz-opacity' : '0.9',
+				'opacity' : '0.9'
+			})
+		}
+	})
 	//翻页
 	$('#kmdms_labelList_switch span').each(function(index, value) {
 		$(value).on('mouseover', function() {
@@ -77,18 +95,19 @@ $(document).ready(function() {
 				isInit = true;
 				pX = $(this).position().left;
 				pY = $(this).position().top;
+				//获得标签id
+				var labelId = $(this).attr('data-myId');
 				var label_y = $(this).offset().top;
 				var label_x = $(this).offset().left;
 				isDown = false;
 				//如果该标签在选择框位置内则加入选择框并隐藏
 				if(label_x > frame_left && label_x < frame_left + frame_width){
 					if(label_y > frame_top && label_y < frame_top + frame_height){
-						var date = new Date().getTime();
 						$('#kmdms_choose_label_frame img:eq('+ i +')').show();
 						$('#kmdms_choose_label_frame label:eq('+ i +') span').text($(this).text());
 						$('#kmdms_choose_label_frame label:eq('+ i +')').attr('class','kmdms_labelList_label');
 						//表示该标签
-						$('#kmdms_choose_label_frame label:eq('+ i +')').attr('data-id',date);
+						$('#kmdms_choose_label_frame label:eq('+ i +')').attr('data-myId',labelId);
 						$('#kmdms_choose_label_frame label:eq('+ i +')').css({
 							'cursor' : 'auto',
 							'position' : 'static',
@@ -99,7 +118,6 @@ $(document).ready(function() {
 							'opacity' : '0.9'
 						});
 						if( i < 3) {
-							$(this).attr('data-id',date);
 							i++;
 							//隐藏标签
 							$(this).css({
@@ -137,9 +155,9 @@ $(document).ready(function() {
 			$(this).parent().remove();
 			i--;
 			$('#kmdms_choose_label_frame img').unbind('click');
-			var dataId = $(this).prevAll('label').attr('data-id');
+			var dataId = $(this).prevAll('label').attr('data-myId');
 			//恢复原有标签
-			$('#kmdms_labelList label[data-id='+ dataId +']').css({
+			$('#kmdms_labelList label[data-myId='+ dataId +']').css({
 				'cursor' : 'pointer',
 				'top' : Math.random() * (parseInt($('#kmdms_labelList').css('height')) - 50)
 			}).fadeTo('slow',0.9);
