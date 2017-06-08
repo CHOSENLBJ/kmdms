@@ -12,13 +12,17 @@
         <result column="stu_sex" property="stuSex" jdbcType="VARCHAR" />
         <result column="bed_num" property="bedNum" jdbcType="INTEGER" />
         <result column="dormitory_id" property="dormitoryId" jdbcType="VARCHAR" />
+        <result column="qq" property="qq" jdbcType="VARCHAR" />
+        <result column="address" property="address" jdbcType="VARCHAR" />
+        <result column="note" property="note" jdbcType="VARCHAR" />
     </resultMap>
 
   <select id="selectStudentById" parameterType="string" resultMap="BaseResultMapCustom">
     SELECT stu_id, stu_name,
             password, stu_college,
             stu_department, stu_class,
-            stu_sex, bed_num
+            stu_sex, bed_num,
+            qq, address, note
     FROM
             student
     WHERE

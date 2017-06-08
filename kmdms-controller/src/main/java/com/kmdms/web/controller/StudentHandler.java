@@ -29,7 +29,13 @@ public class StudentHandler{
 
 	@Autowired
 	private MessageService messageService;
-	
+
+	/**
+	 * just for testing
+	 * @param stu
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping("/add")
 	public String addStudent(Student stu,HttpServletRequest request){
 		studentService.addStudent(stu);
@@ -84,4 +90,19 @@ public class StudentHandler{
     public String toLogin() throws Exception{
         return "login";
     }
+
+	/**
+	 * 更新学生信息
+	 * @param studentCustom
+	 * @param session
+	 * @return
+	 * @throws Exception
+	 */
+    @RequestMapping("/editInfo")
+    public String editInfo(StudentCustom studentCustom, HttpSession session) throws Exception{
+		//获取当前学生
+		StudentCustom session_stu = (StudentCustom) session.getAttribute("session_stu");
+		studentService.editStudentInfo(studentCustom, session_stu);
+		return "redirect:index.action";
+	}
 }

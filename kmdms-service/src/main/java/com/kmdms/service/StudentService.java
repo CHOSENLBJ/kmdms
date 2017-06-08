@@ -11,4 +11,12 @@ public interface StudentService{
      * @param studentCustom
      */
     StudentCustom loginCheck(StudentCustom studentCustom) throws Exception;
+
+    /**
+     * 编辑学生信息
+     * @param studentCustom
+     * @param session_stu
+     * @throws Exception
+     */
+    void editStudentInfo(StudentCustom studentCustom, StudentCustom session_stu) throws Exception;
 }

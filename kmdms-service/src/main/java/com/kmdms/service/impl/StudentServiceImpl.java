@@ -46,5 +46,23 @@ public class StudentServiceImpl implements StudentService{
 		return studentCustom;
 	}
 
+	@Override
+	public void editStudentInfo(StudentCustom studentCustom, StudentCustom session_stu) throws Exception {
+		//将当前学生id给studentCustom
+		studentCustom.setStuId(session_stu.getStuId());
+		//更新学生
+		studentMapperCustom.updateByPrimaryKeySelective(studentCustom);
+		//将新信息给当前学生
+		if(studentCustom.getQq() != null && !"".equals(studentCustom.getQq())){
+			session_stu.setQq(studentCustom.getQq());
+		}
+		if(studentCustom.getAddress() != null && !"".equals(studentCustom.getAddress())){
+			session_stu.setAddress(studentCustom.getAddress());
+		}
+		if(studentCustom.getNote() != null && !"".equals(studentCustom.getNote())){
+			session_stu.setNote(studentCustom.getNote());
+		}
+	}
+
 
 }

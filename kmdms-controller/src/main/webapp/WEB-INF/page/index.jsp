@@ -66,7 +66,7 @@
 					</a>
 				</li>
 				<li class="i_32_inbox">
-					<a href="#" title="Your Messages">
+					<a href="#" title="Your Messages" id="myMsg">
 						<span class="tab_label">我的通知</span>
 						<span class="tab_info">宿舍最新动态</span>
 					</a>
@@ -107,23 +107,23 @@
 						<h4 class="widget_header_title wwIcon i_16_valid">方便舍友了解你</h4>
 					</div>
 					<div class="widget_contents noPadding">
-						<form>
+						<form action="${pageContext.request.contextPath}/student/editInfo.action" method="post">
 							<div class="line_grid">
 								<div class="g_2"><span class="label">我的QQ</span></div>
 								<div class="g_9">
-									<input type="text" class="simple_field"  />
+									<input type="text" class="simple_field" name="qq" value="${sessionScope.session_stu.qq}"  />
 								</div>
 							</div>
 							<div class="line_grid">
 								<div class="g_2"><span class="label">我的地址</span></div>
 								<div class="g_9">
-									<input type="text" class="simple_field"  />
+									<input type="text" class="simple_field" name="address" value="${sessionScope.session_stu.address}" />
 								</div>
 							</div>
 							<div class="line_grid">
 								<div class="g_2"><span class="label">个性化签名</span></div>
 								<div class="g_9">
-									<input type="text" class="simple_field"  />
+									<input type="text" class="simple_field" name="note" value="${sessionScope.session_stu.note}" />
 								</div>
 							</div>
 							<div class="line_grid">
@@ -138,11 +138,11 @@
 				<!--我的通知-->
 				<div id="index_myMsg" class="g_12">
 					<div class="widget_header">
-						<h4 class="widget_header_title wwIcon i_16_valid">我的通知</h4>
+						<h4 class="widget_header_title wwIcon i_16_valid" >我的通知</h4>
 					</div>
 					<div class="widget_contents noPadding">
-							<div class="line_grid">
-								<c:if test="${sessionScope.session_stu.messageList != null}">
+							<div class="line_grid" id="putMessage">
+								<%--<c:if test="${sessionScope.session_stu.messageList != null}">
 									<c:forEach items="${sessionScope.session_stu.messageList}" var="message">
 										<c:if test="${message.isRead == false}">
 											<div class="g_12"><img src="${pageContext.request.contextPath }/img/Icons/22/i_22_inbox.png">&nbsp;<span class="label">${message.content}</span><span class="label fr"><fmt:formatDate value="${message.messageDate}" pattern="yyyy-MM-dd HH:mm:ss" /></span></div>
@@ -151,8 +151,8 @@
 											<div class="g_12"><img src="${pageContext.request.contextPath }/img/Icons/22/i_22_inbox_open.png">&nbsp;<span class="label">${message.content}</span><span class="label fr"><fmt:formatDate value="${message.messageDate}" pattern="yyyy-MM-dd HH:mm:ss" /></span></div>
 										</c:if>
 									</c:forEach>
-								</c:if>
-								</div>
+								</c:if>--%>
+							</div>
 					</div>
 				</div>
 				<!--我的舍友-->
@@ -204,4 +204,27 @@
 		</div>
 	</footer>
 </body>
+
+<
+<script type="text/javascript">
+	$("#myMsg").click(function(){
+        $.post("${pageContext.request.contextPath}/message/getMessage.action", {}, function(backData, textStatus, ajax){
+            $("#putMessage").empty();
+            var response_text = ajax.responseText;
+            if(response_text != "")
+            {
+                var messageJS = eval("(" + ajax.responseText + ")");
+                for(var i = 0; i < messageJS.length; i++){
+                    var message = messageJS[i];
+                    var content = message.content;
+                    var messageDate = new Date(message.messageDate).toLocaleString();
+                    var style = message.isRead? "inbox_open" : "inbox";
+					$("#putMessage").append('<div class="g_12"><img src="${pageContext.request.contextPath }/img/Icons/22/i_22_' + style + '.png">&nbsp;<span class="label">' + content + '</span><span class="label fr">' + messageDate + '</span></div>')
+				}
+            }
+        });
+	})
+
+</script>
+
 </html>
