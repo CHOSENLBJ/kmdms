@@ -18,14 +18,14 @@ public class StudentServiceImpl implements StudentService{
 	@Autowired
 	private StudentMapperCustom studentMapperCustom;
 	
-	@Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED, readOnly = false)
 	@Override
+	@Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED, readOnly = false)
 	public void addStudent(Student student){
 		//studentMapper.addStudent(student);
 	}
 
-	@Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED, readOnly = true)
 	@Override
+	@Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED, readOnly = true)
 	public StudentCustom loginCheck(StudentCustom studentCustom) throws Exception{
 		String stuId = studentCustom.getStuId();
 		//根据id查询学生
@@ -47,6 +47,7 @@ public class StudentServiceImpl implements StudentService{
 	}
 
 	@Override
+	@Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED, readOnly = false)
 	public void editStudentInfo(StudentCustom studentCustom, StudentCustom session_stu) throws Exception {
 		//将当前学生id给studentCustom
 		studentCustom.setStuId(session_stu.getStuId());

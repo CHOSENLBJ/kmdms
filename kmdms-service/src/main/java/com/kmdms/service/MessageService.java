@@ -18,4 +18,10 @@ public interface MessageService {
      */
     List<Message> findMessagesByStuId(String stuId) throws Exception;
 
+    /**
+     * 将学号为stuId的学生的所有通知设置为已读
+     * @throws Exception
+     */
+    void updateMessageIsReadTrue(String stuId) throws Exception;
+
 }

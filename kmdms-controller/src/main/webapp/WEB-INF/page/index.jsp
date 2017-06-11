@@ -97,7 +97,7 @@
 								<%--<div class="g_12"><span class="label">1.小星星</span></div>
 								<div class="g_12"><span class="label">2.小星星</span></div>
 								<div class="g_12"><span class="label">3.小星星</span></div>--%>
-								<div class="g_12"><a style="float: right;font-size: 12px;" href="${pageContext.request.contextPath}/label/chooseLabel.action">去修改/去选择</a></div>
+								<div class="g_12"><a style="float: right;font-size: 12px;" href="${pageContext.request.contextPath}/label/toChooseLabel.action">去修改/去选择</a></div>
 							</div>
 					</div>
 				</div>

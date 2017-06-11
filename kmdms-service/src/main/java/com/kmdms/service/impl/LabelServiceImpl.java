@@ -48,7 +48,25 @@ public class LabelServiceImpl implements LabelService {
     }
 
     @Override
+    @Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED, readOnly = true)
     public List<Label> findLabelsByStuId(String stuId) throws Exception {
         return labelMapperCustom.selectLabelsByStuId(stuId);
+    }
+
+    @Override
+    @Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED, readOnly = false)
+    public void updateLabelsOfStudent(String[] labelId, String stuId) throws Exception {
+        if(labelId != null && labelId.length == 3){
+            //删除学生原来所选标签
+            labelMapperCustom.deleteLabelsOfStudent(stuId);
+            LabelCustom labelCustom = new LabelCustom();
+            labelCustom.setStuId(stuId);
+            //为学生添加新的标签
+            for(int i = 0; i < labelId.length; i++){
+                labelCustom.setLabelId(labelId[i]);
+                labelCustom.setWeight(i + 1);
+                labelMapperCustom.insertLabelsOfStudent(labelCustom);
+            }
+        }
     }
 }

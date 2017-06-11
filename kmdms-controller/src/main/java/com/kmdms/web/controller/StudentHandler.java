@@ -55,8 +55,8 @@ public class StudentHandler{
 		List<Label> labelList = labelService.findLabelsByStuId(studentCustom.getStuId());
 		studentCustom.setLabelList(labelList);
 		//补充student的通知
-		List<Message> messageList = messageService.findMessagesByStuId(studentCustom.getStuId());
-		studentCustom.setMessageList(messageList);
+		/*List<Message> messageList = messageService.findMessagesByStuId(studentCustom.getStuId());
+		studentCustom.setMessageList(messageList);*/
 		//将studentCustom放入session中
 		request.getSession().setAttribute("session_stu", studentCustom);
 		return "redirect:index.action";

@@ -29,4 +29,15 @@
             message_date DESC
   </select>
 
+  <update id="updateMessageIsReadTrue" parameterType="string">
+    UPDATE
+            message
+    SET
+            is_read = TRUE
+    WHERE
+            stu_id = #{stuId}
+    AND
+            is_read = FALSE
+  </update>
+
 </mapper>

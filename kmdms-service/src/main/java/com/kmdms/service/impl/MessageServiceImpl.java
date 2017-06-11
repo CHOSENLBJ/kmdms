@@ -6,6 +6,9 @@ import com.kmdms.pojo.Message;
 import com.kmdms.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -19,7 +22,20 @@ public class MessageServiceImpl implements MessageService {
     private MessageMapperCustom messageMapperCustom;
 
     @Override
+    @Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED, readOnly = false)
     public List<Message> findMessagesByStuId(String stuId) throws Exception {
-        return messageMapperCustom.selectMessagesByStuId(stuId);
+        //获得所有stuId所有通知
+        List<Message> messageList = messageMapperCustom.selectMessagesByStuId(stuId);
+        //将stuId所有通知设置为已读
+        this.updateMessageIsReadTrue(stuId);
+        return messageList;
     }
+
+    @Override
+    @Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED, readOnly = false)
+    public void updateMessageIsReadTrue(String stuId) throws Exception {
+        messageMapperCustom.updateMessageIsReadTrue(stuId);
+    }
+
+
 }

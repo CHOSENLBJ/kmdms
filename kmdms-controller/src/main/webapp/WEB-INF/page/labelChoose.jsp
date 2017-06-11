@@ -30,18 +30,18 @@
 								</div>
 							</c:when>
 							<c:otherwise>
-										<label class="kmdms_labelList_label"><span>${label.content}</span></label>
+										<label data-myId="${label.labelId }" class="kmdms_labelList_label"><span>${label.content}</span></label>
 							</c:otherwise>
 						</c:choose>
 					</c:when>
 					<c:otherwise>
 						<c:choose>
 							<c:when test="${(status.index + 1) % 6 == 0 && (status.index + 1) / 6 >= 1  || (status.index + 1) == labelList.size()}">
-									<label class="kmdms_labelList_label"><span>${label.content}</span></label>
+									<label data-myId="${label.labelId }" class="kmdms_labelList_label"><span>${label.content}</span></label>
 								</div>
 							</c:when>
 							<c:otherwise>
-								<label class="kmdms_labelList_label"><span>${label.content}</span></label>
+								<label data-myId="${label.labelId }" class="kmdms_labelList_label"><span>${label.content}</span></label>
 							</c:otherwise>
 						</c:choose>
 					</c:otherwise>
@@ -61,19 +61,22 @@
 		<div id="kmdms_choose" class="row">
 			<!--所选标签-->
 			<div id="kmdms_choose_label" class="col-md-6 row">
-				<form>
-				<div class="col-md-4"></div>
-				<div id="kmdms_choose_label_frame" class="col-md-4">
-					<c:if test="${sessionScope.session_stu.labelList != null}">
-						<c:forEach items="${sessionScope.session_stu.labelList}" var="label">
-							<div><label data-myId="${label.labelId}"><span>${label.content}</span></label><img src="${pageContext.request.contextPath }/img/close.png"></div>
-						</c:forEach>
-					</c:if>
-				</div>
-				<div id="kmdms_choose_label_createAndSubmit" class="col-md-4">
-					<div><button type="submit" class="button blue serif skew glossy">确定选择</button></div>
-					<div><button type="button" class="button blue serif skew glossy" data-toggle="modal" data-target="#myLabel">定义标签</button></div>
-				</div>
+				<form action="${pageContext.request.contextPath}/label/chooseLabel.action" method="post">
+					<input type="hidden" name="labelId" value="a" />
+					<input type="hidden" name="labelId" value="b" />
+					<input type="hidden" name="labelId" value="c" />
+					<div class="col-md-4"></div>
+					<div id="kmdms_choose_label_frame" class="col-md-4">
+						<c:if test="${sessionScope.session_stu.labelList != null}">
+							<c:forEach items="${sessionScope.session_stu.labelList}" var="label">
+								<div><label data-myId="${label.labelId}"><span>${label.content}</span></label><img src="${pageContext.request.contextPath }/img/close.png"></div>
+							</c:forEach>
+						</c:if>
+					</div>
+					<div id="kmdms_choose_label_createAndSubmit" class="col-md-4">
+						<div><button type="submit" id="submit_button" class="button blue serif skew glossy">确定选择</button></div>
+						<div><button type="button" class="button blue serif skew glossy" data-toggle="modal" data-target="#myLabel">定义标签</button></div>
+					</div>
 				</form>
 			</div>
 			<!--规则-->
@@ -108,6 +111,14 @@
 		<input id="projectName" type="hidden" value="${pageContext.request.contextPath }">
 		<script type="text/javascript">
 			var projectName = document.getElementById("projectName").value;
+		</script>
+		<script type="text/javascript">
+			$("#submit_button").click(function(){
+			    $("#kmdms_choose_label_frame div label").each(function (i) {
+					$("#kmdms_choose_label form :hidden :eq("+i+")").val($(this).attr("data-myId"));
+					alert(i);
+                })
+			})
 		</script>
 	</body>
 </html>
