@@ -12,15 +12,15 @@ import java.util.List;
  */
 public class StudentCustom extends Student {
 
-    private Dormitory dormitory;            //所在宿舍
+    private DormitoryCustom dormitoryCustom;            //所在宿舍
     private List<Label> labelList;          //所选标签
     private List<Message> messageList;      //学生消息
 
-    public Dormitory getDormitory() {
-        return dormitory;
+    public DormitoryCustom getDormitoryCustom() {
+        return dormitoryCustom;
     }
-    public void setDormitory(Dormitory dormitory) {
-        this.dormitory = dormitory;
+    public void setDormitoryCustom(DormitoryCustom dormitoryCustom) {
+        this.dormitoryCustom = dormitoryCustom;
     }
 
     public List<Label> getLabelList() {

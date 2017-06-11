@@ -32,4 +32,12 @@ public interface LabelService {
      * @throws Exception
      */
     List<Label> findLabelsByStuId(String stuId) throws Exception;
+
+    /**
+     * 更新学生所选的标签
+     * @param labelId
+     * @param stuId
+     * @throws Exception
+     */
+    void updateLabelsOfStudent(String[] labelId, String stuId) throws Exception;
 }

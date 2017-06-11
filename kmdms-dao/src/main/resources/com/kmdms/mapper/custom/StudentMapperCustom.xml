@@ -21,7 +21,7 @@
     SELECT stu_id, stu_name,
             password, stu_college,
             stu_department, stu_class,
-            stu_sex, bed_num,
+            stu_sex, bed_num, dormitory_id,
             qq, address, note
     FROM
             student

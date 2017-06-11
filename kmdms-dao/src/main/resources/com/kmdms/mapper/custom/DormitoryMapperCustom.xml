@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kmdms.mapper.custom.DormitoryMapperCustom" >
+  <resultMap id="BaseResultMap" type="com.kmdms.pojo.Dormitory" >
+    <id column="dormitory_id" property="dormitoryId" jdbcType="VARCHAR" />
+    <result column="room_num" property="roomNum" jdbcType="VARCHAR" />
+    <result column="bed_count" property="bedCount" jdbcType="INTEGER" />
+    <result column="dormitory_sort" property="dormitorySort" jdbcType="INTEGER" />
+    <result column="building_id" property="buildingId" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="BaseResultMapCustom" type="com.kmdms.pojo.custom.DormitoryCustom" >
+    <id column="dormitory_id" property="dormitoryId" jdbcType="VARCHAR" />
+    <result column="room_num" property="roomNum" jdbcType="VARCHAR" />
+    <result column="bed_count" property="bedCount" jdbcType="INTEGER" />
+    <result column="dormitory_sort" property="dormitorySort" jdbcType="INTEGER" />
+    <result column="building_id" property="buildingId" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="BaseResultMapCustomFullInfo" type="com.kmdms.pojo.custom.DormitoryCustom" >
+    <id column="d.dormitory_id" property="dormitoryId" jdbcType="VARCHAR" />
+    <result column="d.room_num" property="roomNum" jdbcType="VARCHAR" />
+    <result column="d.bed_count" property="bedCount" jdbcType="INTEGER" />
+    <result column="d.dormitory_sort" property="dormitorySort" jdbcType="INTEGER" />
+    <result column="d.building_id" property="buildingId" jdbcType="VARCHAR" />
+    <association property="building" javaType="com.kmdms.pojo.Building">
+        <id column="b.building_id" property="buildingId" jdbcType="VARCHAR"/>
+        <result column="b.building_name" property="buildingName" jdbcType="VARCHAR"/>
+        <result column="b.floor_count" property="floorCount" jdbcType="INTEGER"/>
+        <result column="b.d_count" property="dCount" jdbcType="INTEGER"/>
+        <result column="b.total_d_count" property="totalDCount" jdbcType="INTEGER"/>
+    </association>
+    <collection property="studentList" ofType="com.kmdms.pojo.Student">
+        <id column="s.stu_id" property="stuId" jdbcType="VARCHAR" />
+        <result column="s.stu_name" property="stuName" jdbcType="VARCHAR" />
+        <result column="s.password" property="password" jdbcType="VARCHAR" />
+        <result column="s.stu_college" property="stuCollege" jdbcType="VARCHAR" />
+        <result column="s.stu_department" property="stuDepartment" jdbcType="VARCHAR" />
+        <result column="s.stu_class" property="stuClass" jdbcType="VARCHAR" />
+        <result column="s.stu_sex" property="stuSex" jdbcType="VARCHAR" />
+        <result column="s.bed_num" property="bedNum" jdbcType="INTEGER" />
+        <result column="s.dormitory_id" property="dormitoryId" jdbcType="VARCHAR" />
+        <result column="s.qq" property="qq" jdbcType="VARCHAR" />
+        <result column="s.address" property="address" jdbcType="VARCHAR" />
+        <result column="s.note" property="note" jdbcType="VARCHAR" />
+    </collection>
+  </resultMap>
+
+  <select id="selectDormitoryFullInfoByDormitoryId" parameterType="string" resultMap="BaseResultMapCustomFullInfo">
+    SELECT
+            d.dormitory_id 'd.dormitory_id', d.room_num 'd.room_num', d.bed_count 'd.bed_count',
+            d.dormitory_sort 'd.dormitory_sort', d.building_id 'd.building_id',
+            b.building_id 'b.building_id', b.building_name 'b.building_name', b.floor_count 'b.floor_count',
+            b.d_count 'b.d_count', b.total_d_count 'b.total_d_count',
+            s.stu_id 's.stu_id', s.stu_name 's.stu_name', s.password 's.password', s.stu_college 's.stu_college',
+            s.stu_department 's.stu_department', s.stu_class 's.stu_class', s.stu_sex 's.stu_sex', s.bed_num 's.bed_num',
+            s.dormitory_id 's.dormitory_id', s.qq 's.qq', s.address 's.address', s.note 's.note'
+    FROM
+	        dormitory d, building b, student s
+    WHERE
+	        d.dormitory_id = s.dormitory_id
+    AND
+	        d.building_id = b.building_id
+    AND
+	        d.dormitory_id = #{dormitoryId}
+    ORDER BY
+	        s.bed_num ASC
+  </select>
+
+</mapper>

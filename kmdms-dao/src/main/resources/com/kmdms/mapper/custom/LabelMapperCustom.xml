@@ -39,4 +39,18 @@
              sl.weight ASC
   </select>
 
+  <delete id="deleteLabelsOfStudent" parameterType="string">
+    DELETE FROM
+              stu_lab
+    WHERE
+              stu_id = #{stuId}
+  </delete>
+
+  <insert id="insertLabelsOfStudent" parameterType="com.kmdms.pojo.custom.LabelCustom">
+    INSERT INTO
+              stu_lab
+    VALUE
+              (#{stuId}, #{labelId}, #{weight})
+  </insert>
+
 </mapper>

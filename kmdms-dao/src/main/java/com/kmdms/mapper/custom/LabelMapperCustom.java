@@ -29,4 +29,18 @@ public interface LabelMapperCustom extends LabelMapper{
      * @throws Exception
      */
     List<Label> selectLabelsByStuId(String stuId) throws Exception;
+
+    /**
+     * 删除学生原来所选标签
+     * @param stuId
+     * @throws Exception
+     */
+    void deleteLabelsOfStudent(String stuId) throws Exception;
+
+    /**
+     * 插入学生所选标签
+     * @param labelCustom
+     * @throws Exception
+     */
+    void insertLabelsOfStudent(LabelCustom labelCustom) throws Exception;
 }
