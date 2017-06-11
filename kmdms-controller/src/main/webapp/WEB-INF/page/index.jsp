@@ -162,32 +162,26 @@
 					</div>
 					<div class="widget_contents noPadding">
 							<div class="line_grid">
-								<div class="g_12"><span class="label">我的宿舍：中六107</span></div>
+								<div class="g_12"><span class="label">我的宿舍：
+									<c:if test="${sessionScope.session_stu.dormitoryCustom != null && sessionScope.session_stu.dormitoryCustom.building != null}">
+										${sessionScope.session_stu.dormitoryCustom.building.buildingName}${sessionScope.session_stu.dormitoryCustom.roomNum}
+									</c:if>
+								</span></div>
 								<div class="g_12"><span class="label">我的舍友：</span></div>
-								<div class="g_6">
-									<img src="${pageContext.request.contextPath }/img/user_avatar.png" class="user_avatar fl" />
-									<div class="fl index_myRoommate_information">
-										<div><span>姓名：东方不败</span></div>
-										<div><span>地址：黑木崖</span></div>
-										<div><span>QQ：11111111</span></div>
-									</div>
-								</div>
-								<div class="g_6">
-									<img src="${pageContext.request.contextPath }/img/user_avatar.png" class="user_avatar fl" />
-									<div class="fl index_myRoommate_information">
-										<div><span>姓名：风清扬</span></div>
-										<div><span>地址：思过崖</span></div>
-										<div><span>QQ：22222222</span></div>
-									</div>
-								</div>
-								<div class="g_6">
-									<img src="${pageContext.request.contextPath }/img/user_avatar.png" class="user_avatar fl" />
-									<div class="fl index_myRoommate_information">
-										<div><span>姓名：任我行</span></div>
-										<div><span>地址：梅庄</span></div>
-										<div><span>QQ：333333</span></div>
-									</div>
-								</div>
+								<c:if test="${sessionScope.session_stu.dormitoryCustom != null && sessionScope.session_stu.dormitoryCustom.studentList != null}">
+									<c:forEach items="${sessionScope.session_stu.dormitoryCustom.studentList}" var="student" >
+										<c:if test="${student.stuId != sessionScope.session_stu.stuId}">
+											<div class="g_6">
+												<img src="${pageContext.request.contextPath }/img/user_avatar.png" class="user_avatar fl" />
+												<div class="fl index_myRoommate_information">
+													<div><span>姓名：${student.stuName}</span></div>
+													<div><span>地址：${student.address}</span></div>
+													<div><span>QQ：${student.qq}</span></div>
+												</div>
+											</div>
+										</c:if>
+									</c:forEach>
+								</c:if>
 							</div>
 					</div>
 				</div>

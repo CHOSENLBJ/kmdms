@@ -6,7 +6,9 @@ import javax.servlet.http.HttpSession;
 
 import com.kmdms.pojo.Label;
 import com.kmdms.pojo.Message;
+import com.kmdms.pojo.custom.DormitoryCustom;
 import com.kmdms.pojo.custom.StudentCustom;
+import com.kmdms.service.DormitoryService;
 import com.kmdms.service.LabelService;
 import com.kmdms.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,9 @@ public class StudentHandler{
 
 	@Autowired
 	private MessageService messageService;
+
+	@Autowired
+	private DormitoryService dormitoryService;
 
 	/**
 	 * just for testing
@@ -57,6 +62,9 @@ public class StudentHandler{
 		//补充student的通知
 		/*List<Message> messageList = messageService.findMessagesByStuId(studentCustom.getStuId());
 		studentCustom.setMessageList(messageList);*/
+		//补充student的宿舍信息
+		DormitoryCustom dormitoryCustom =dormitoryService.findDormitoryFullInfoByDormitoryId(studentCustom.getDormitoryId());
+		studentCustom.setDormitoryCustom(dormitoryCustom);
 		//将studentCustom放入session中
 		request.getSession().setAttribute("session_stu", studentCustom);
 		return "redirect:index.action";
