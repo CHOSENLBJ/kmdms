@@ -62,6 +62,17 @@
 					class="icon-caret-right"></span>创建宿舍</a></li>
 		</ul>
 	</div>
+	<ul class="bread">
+		<li><a href="{:U('Index/info')}" target="right" class="icon-home">
+				首页</a></li>
+		<li><a href="##" id="a_leader_txt">网站信息</a></li>
+		<li><b>当前管理者：</b><span style="color:black">中文</span></li>
+	</ul>
+	<div class="admin">
+		<!-- 后台页面默认主页 -->
+		<iframe scrolling="auto" rameborder="0" src="" name="right"
+			width="100%" height="100%"></iframe>
+	</div>
 	<script type="text/javascript">
 		$(function() {
 			$(".leftnav h2").click(function() {
@@ -75,17 +86,6 @@
 			})
 		});
 	</script>
-	<ul class="bread">
-		<li><a href="{:U('Index/info')}" target="right" class="icon-home">
-				首页</a></li>
-		<li><a href="##" id="a_leader_txt">网站信息</a></li>
-		<li><b>当前管理者：</b><span style="color:black">中文</span></li>
-	</ul>
-	<div class="admin">
-		<!-- 后台页面默认主页 -->
-		<iframe scrolling="auto" rameborder="0" src="" name="right"
-			width="100%" height="100%"></iframe>
-	</div>
 </body>
 
 </html>

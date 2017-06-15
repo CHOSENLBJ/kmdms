@@ -1,5 +1,6 @@
 package com.kmdms.service;
 
+import com.kmdms.common.utils.PageBean;
 import com.kmdms.pojo.Label;
 import com.kmdms.pojo.custom.LabelCustom;
 
@@ -40,4 +41,11 @@ public interface LabelService {
      * @throws Exception
      */
     void updateLabelsOfStudent(String[] labelId, String stuId) throws Exception;
+    /**
+     * 后台标签列表，带分页，带条件筛选
+     * @param pageCode
+     * @param content
+     * @return
+     */
+	PageBean<LabelCustom> getLabelToPage(String pageCode,String content) throws Exception;
 }

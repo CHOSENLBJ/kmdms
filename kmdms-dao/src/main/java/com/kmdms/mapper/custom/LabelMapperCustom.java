@@ -1,5 +1,6 @@
 package com.kmdms.mapper.custom;
 
+import com.kmdms.common.utils.PageBean;
 import com.kmdms.mapper.LabelMapper;
 import com.kmdms.pojo.Label;
 import com.kmdms.pojo.custom.LabelCustom;
@@ -37,10 +38,17 @@ public interface LabelMapperCustom extends LabelMapper{
      */
     void deleteLabelsOfStudent(String stuId) throws Exception;
 
-    /**
+    /**查询后台标签列表
      * 插入学生所选标签
      * @param labelCustom
      * @throws Exception
      */
     void insertLabelsOfStudent(LabelCustom labelCustom) throws Exception;
+    /**
+     * 
+     * @param labelPageBean
+     * @return
+     * @throws Exception
+     */
+	List<LabelCustom> selectLabelToPage(PageBean<LabelCustom> labelPageBean) throws Exception;
 }

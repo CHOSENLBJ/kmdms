@@ -44,11 +44,53 @@
 						<th>选择人数</th>
 						<th width="170">操作</th>
 					</tr>
+					<c:forEach items="${labelPageBean.beanList }" var="labelCustom">
 					<tr>
-						<td>打篮球的</td>
-						<td>50</td>
+						<td>${labelCustom.content }</td>
+						<td>${labelCustom.chooseCount }</td>
 						<td><div class="button-group"> <a class="button border-main" href="admin_building_edit.html"><span class="icon-edit"></span> 修改</a> <a class="button border-red" href="" onclick="return del()"><span class="icon-trash-o"></span> 删除</a> </div></td>
 					</tr>
+					</c:forEach>
+					<tr>
+					<!--分页-->
+					<c:if test="${labelPageBean.totalPage > 1 }">
+					<!-- 计算页码 -->
+						<c:choose>
+							<c:when test="${labelPageBean.totalPage < 7 }">
+								<c:set var="begin" value="1"></c:set>
+								<c:set var="end" value="${labelPageBean.totalPage }"></c:set>
+							</c:when>
+							<c:otherwise>
+								<c:set var="begin" value="${labelPageBean.pageCode - 4 }"></c:set>
+								<c:set var="end" value="${labelPageBean.pageCode + 3 }"></c:set>
+								<c:if test="${begin < 1 }">
+									<c:set var="begin" value="1"></c:set>
+									<c:set var="end" value="7"></c:set>
+								</c:if>
+								<c:if test="${end > labelPageBean.totalPage }">
+									<c:set var="begin" value="${labelPageBean.totalPage - 6 }"></c:set>
+									<c:set var="end" value="${labelPageBean.totalPage }"></c:set>
+								</c:if>
+							</c:otherwise>
+						</c:choose>
+					<td colspan="8">
+						<div class="pagelist">
+							<c:if test="${labelPageBean.pageCode > 1 }"><a href="${pageContext.request.contextPath }/label/getLabelList.action?pc=${labelPageBean.pageCode-1 }&content=${keywords }">上一页</a></c:if>
+							<c:forEach var="i" begin="${begin }" end="${end }">
+								<c:choose>
+									<c:when test="${i != labelPageBean.pageCode}"><a href="${pageContext.request.contextPath }/label/getLabelList.action?pc=${i }&content=${keywords }">${i }</a></c:when>
+									<c:when test="${i == labelPageBean.pageCode}"><span class="current">${i }</span></c:when>
+								</c:choose>
+							</c:forEach>
+							<!-- <span class="current">1</span><a href="">2</a> -->
+							<c:if test="${labelPageBean.pageCode < labelPageBean.totalPage }">
+							<a href="${pageContext.request.contextPath }/label/getLabelList.action?pc=${labelPageBean.pageCode+1 }&content=${keywords }">下一页</a>
+							</c:if>
+							<a href="${pageContext.request.contextPath }/label/getLabelList.action?pc=${labelPageBean.totalPage }&content=${keywords }">尾页</a>
+						</div>
+					</td>
+					</c:if>
+				</tr>
 				</table>
 			</div>
 		</form>

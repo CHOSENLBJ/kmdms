@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMapCustom" type="com.kmdms.pojo.custom.LabelCustom" >
     <id column="label_id" property="labelId" jdbcType="VARCHAR" />
     <result column="content" property="content" jdbcType="VARCHAR" />
+    <result property="chooseCount" javaType="INTEGER"/>
   </resultMap>
   <resultMap id="BaseResultMap" type="com.kmdms.pojo.Label" >
       <id column="label_id" property="labelId" jdbcType="VARCHAR" />
@@ -52,5 +53,20 @@
     VALUE
               (#{stuId}, #{labelId}, #{weight})
   </insert>
-
+  
+  <select id="selectLabelToPage" resultMap="BaseResultMapCustom" parameterType="com.kmdms.common.utils.PageBean">
+  	SELECT 
+  			  label_id, content, count(stu_lab.stu_id) as chooseCount
+  	FROM
+  			  label,stu_lab
+    WHERE 	
+    		  stu_lab.label_id=label.label_id 
+  	<if test="condition != null">
+		<if test="condition.content != null" >
+	        content LIKE concat(concat('%',#{condition.content}),'%')
+	    </if>
+    </if>
+    GROUP BY  label.label_id
+    LIMIT #{pagePosition}, #{pageRecord}
+  </select>
 </mapper>

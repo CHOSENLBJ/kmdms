@@ -39,5 +39,5 @@
     AND
             is_read = FALSE
   </update>
-
+  
 </mapper>

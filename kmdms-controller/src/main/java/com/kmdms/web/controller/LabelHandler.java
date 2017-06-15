@@ -1,19 +1,22 @@
 package com.kmdms.web.controller;
 
-import com.alibaba.fastjson.JSONArray;
-import com.kmdms.pojo.Label;
-import com.kmdms.pojo.custom.LabelCustom;
-import com.kmdms.pojo.custom.StudentCustom;
-import com.kmdms.service.LabelService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.PrintWriter;
-import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.alibaba.fastjson.JSONArray;
+import com.kmdms.common.utils.PageBean;
+import com.kmdms.pojo.Label;
+import com.kmdms.pojo.custom.LabelCustom;
+import com.kmdms.pojo.custom.StudentCustom;
+import com.kmdms.service.LabelService;
 
 /**
  * Created by JAMES on 2017/5/25.
@@ -81,5 +84,18 @@ public class LabelHandler {
         studentCustom.setLabelList(labelList);
         return "redirect:/student/index.action";
     }
-
+    /**
+     * 后台得到指定页码的标签
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/getLabelList")
+    public String getLabelList(HttpServletRequest request,String pc,String content) throws Exception {
+        //获得所有标签
+        PageBean<LabelCustom> labelPageBean = labelService.getLabelToPage(pc,content);
+        //将标签放入request域
+        request.setAttribute("labelPageBean", labelPageBean);
+        return "labelChoose";
+    }
 }

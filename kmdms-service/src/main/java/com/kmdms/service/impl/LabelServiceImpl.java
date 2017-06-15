@@ -1,9 +1,13 @@
 package com.kmdms.service.impl;
 
+import com.kmdms.common.utils.PageBean;
 import com.kmdms.mapper.custom.LabelMapperCustom;
 import com.kmdms.pojo.Label;
+import com.kmdms.pojo.LabelExample;
+import com.kmdms.pojo.LabelExample.Criteria;
 import com.kmdms.pojo.custom.LabelCustom;
 import com.kmdms.service.LabelService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
@@ -21,6 +25,10 @@ public class LabelServiceImpl implements LabelService {
 
     @Autowired
     private LabelMapperCustom labelMapperCustom;
+    
+    private static LabelExample labelExample = new LabelExample();
+    //每页记录数
+    private final String pageRecord = "5";
 
     @Override
     public List<LabelCustom> getAllLabel() throws Exception {
@@ -69,4 +77,26 @@ public class LabelServiceImpl implements LabelService {
             }
         }
     }
+
+	@Override
+	public PageBean<LabelCustom> getLabelToPage(String pageCode,String content) throws Exception {
+		PageBean<LabelCustom> labelPageBean = new PageBean<LabelCustom>();
+		//带条件的标签数
+		labelExample.clear();
+		labelExample.createCriteria().andContentLike(content);
+		int totalRecord = labelMapperCustom.countByExample(labelExample);
+		//设置pageBean所需参数
+		LabelCustom condition = new LabelCustom();
+		condition.setContent(content);
+		labelPageBean.setPageCode(pageCode);
+		labelPageBean.setCondition(condition);
+		labelPageBean.setPageRecord(pageRecord);
+		labelPageBean.setPagePosition(pageRecord, pageCode);
+		labelPageBean.setTotalPage(pageRecord, totalRecord);
+		labelPageBean.setTotalRecord(totalRecord);
+		//执行查询语句
+		List<LabelCustom> labelCustomList = labelMapperCustom.selectLabelToPage(labelPageBean);
+		labelPageBean.setBeanList(labelCustomList);
+		return labelPageBean;
+	}
 }
