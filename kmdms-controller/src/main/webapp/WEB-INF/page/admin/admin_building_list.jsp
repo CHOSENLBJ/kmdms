@@ -1,5 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
@@ -29,13 +29,6 @@
 						style="float:right; display:none;">添加字段</a>
 				</div>
 				<div class="padding border-bottom">
-					<ul class="search" style="padding-left:10px;">
-						<li><input type="text" placeholder="请输入搜索关键字" name="keywords"
-							class="input"
-							style="width:250px; line-height:17px;display:inline-block" /> <a
-							href="javascript:void(0)" class="button border-main icon-search"
-							onclick=> 搜索</a></li>
-					</ul>
 				</div>
 				<table id="dormitory_attr" class="table table-hover text-center">
 					<tr>
@@ -46,14 +39,16 @@
 						<th>居住人数</th>
 						<th width="170">操作</th>
 					</tr>
+					<c:forEach items="${buildingPageBean.beanList }" var="building">
 					<tr>
-						<td>中六</td>
-						<td>4</td>
-						<td>8</td>
-						<td>5</td>
-						<td>160(满人)</td>
-						<td><div class="button-group"> <a class="button border-main" href="admin_building_edit.html"><span class="icon-edit"></span> 修改</a> <a class="button border-red" href="" onclick="return del()"><span class="icon-trash-o"></span> 删除</a> </div></td>
+						<td>${building.buildingName }</td>
+						<td>${building.bedCount * building.dCount * building.floorCount }</td>
+						<td>${building.dCount }</td>
+						<td>${building.floorCount }</td>
+						<td>${building.totalPeople }</td>
+						<td><div class="button-group"> <a class="button border-main" href="${pageContext.request.contextPath }/building/toEditBuilding.action"><span class="icon-edit"></span> 修改</a> <a class="button border-red" href="" onclick="return del()"><span class="icon-trash-o"></span> 删除</a> </div></td>
 					</tr>
+					</c:forEach>
 				</table>
 			</div>
 		</form>

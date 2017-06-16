@@ -1,5 +1,8 @@
 package com.kmdms.mapper.custom;
 
+import java.util.List;
+
+import com.kmdms.common.utils.PageBean;
 import com.kmdms.mapper.DormitoryMapper;
 import com.kmdms.pojo.custom.DormitoryCustom;
 

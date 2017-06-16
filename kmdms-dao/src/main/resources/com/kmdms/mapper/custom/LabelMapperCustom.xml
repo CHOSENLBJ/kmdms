@@ -56,10 +56,12 @@
   
   <select id="selectLabelToPage" resultMap="BaseResultMapCustom" parameterType="com.kmdms.common.utils.PageBean">
   	SELECT 
-  			  label_id, content, count(stu_lab.stu_id) as chooseCount
+  			  label.label_id, content, count(stu_lab.stu_id) as chooseCount
   	FROM
-  			  label,stu_lab
-    WHERE 	
+  			  label 
+    LEFT JOIN 
+    		  stu_lab
+    ON 	
     		  stu_lab.label_id=label.label_id 
   	<if test="condition != null">
 		<if test="condition.content != null" >

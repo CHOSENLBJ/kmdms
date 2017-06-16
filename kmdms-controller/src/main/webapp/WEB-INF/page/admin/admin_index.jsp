@@ -56,9 +56,9 @@
 			<span class="icon-flag"></span>宿舍管理
 		</h2>
 		<ul>
-			<li><a href="admin_building_list.html" target="right"><span
+			<li><a href="${pageContext.request.contextPath }/building/getBuildingList.action" target="right"><span
 					class="icon-caret-right"></span>宿舍列表</a></li>
-			<li><a href="admin_building_edit.html" target="right"><span
+			<li><a href="${pageContext.request.contextPath }/building/toEditBuilding.action" target="right"><span
 					class="icon-caret-right"></span>创建宿舍</a></li>
 		</ul>
 	</div>
