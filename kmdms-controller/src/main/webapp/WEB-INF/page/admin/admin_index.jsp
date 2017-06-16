@@ -47,9 +47,9 @@
 			<span class="icon-user"></span>标签管理
 		</h2>
 		<ul>
-			<li><a href="admin_label_edit.html" target="right"><span
+			<li><a href="${pageContext.request.contextPath }/label/toEditLabel.action" target="right"><span
 					class="icon-caret-right"></span>创建标签</a></li>
-			<li><a href="admin_label_list.html" target="right"><span
+			<li><a href="${pageContext.request.contextPath }/label/getLabelList.action" target="right"><span
 					class="icon-caret-right"></span>标签列表</a></li>
 		</ul>
 		<h2>

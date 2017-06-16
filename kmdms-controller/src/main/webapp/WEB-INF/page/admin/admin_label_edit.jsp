@@ -22,14 +22,14 @@
 <div class="panel admin-panel">
   <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>标签</strong></div>
   <div class="body-content">
-    <form method="post" class="form-x" action="user/admin_user_editByAdmin.action">  
+    <form id="admin_label_form" method="post" class="form-x" data-action="${pageContext.request.contextPath }/label/editLabel.action" action="">  
       <div class="form-group" >
       	<span class="form-group">
         <span class="label">
           <label>标签内容：</label>
         </span>
         <span class="field">
-			<textarea id="label_content"></textarea>
+			<textarea name="content" id="label_content"></textarea>
         </span>
       </span>
       <br />

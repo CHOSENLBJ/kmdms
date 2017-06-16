@@ -96,6 +96,27 @@ public class LabelHandler {
         PageBean<LabelCustom> labelPageBean = labelService.getLabelToPage(pc,content);
         //将标签放入request域
         request.setAttribute("labelPageBean", labelPageBean);
-        return "labelChoose";
+        return "admin/admin_label_list";
+    }
+    /**
+     * 后台跳转到标签创建页面
+     * @param labelId
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("toEditLabel")
+    public String toEditLabel(String labelId) throws Exception{
+    	return "admin/admin_label_edit";
+    }
+    /**
+     * 后台创建或修改标签
+     * @return
+     * @throws Exception 
+     */
+    @RequestMapping("editLabel")
+    public void editLabel(HttpServletResponse response,HttpServletRequest request,LabelCustom labelCustom) throws Exception{
+    	LabelCustom label = labelService.createLabel(labelCustom.getContent());
+    	if(label != null) response.getWriter().print("success");
+    	else response.getWriter().print("fail");
     }
 }
