@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import com.kmdms.common.utils.PageBean;
 import com.kmdms.mapper.custom.BuildingMapperCustom;
 import com.kmdms.pojo.custom.BuildingCustom;
-import com.kmdms.pojo.custom.DormitoryCustom;
 import com.kmdms.service.BuildingService;
 
 @Service

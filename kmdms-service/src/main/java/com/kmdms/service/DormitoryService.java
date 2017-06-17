@@ -1,7 +1,5 @@
 package com.kmdms.service;
 
-import com.kmdms.common.utils.PageBean;
-import com.kmdms.pojo.Dormitory;
 import com.kmdms.pojo.custom.DormitoryCustom;
 
 /**
@@ -16,11 +14,4 @@ public interface DormitoryService {
      * @throws Exception
      */
     DormitoryCustom findDormitoryFullInfoByDormitoryId(String dormitoryId) throws Exception;
-    /**
-     * 得到所有宿舍，带分页
-     * @param pageCode
-     * @return
-     * @throws Exception
-     */
-	PageBean<DormitoryCustom> selectAllDormitory(String pageCode) throws Exception;
 }

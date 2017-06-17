@@ -1,11 +1,11 @@
 package com.kmdms.mapper.custom;
 
+import java.util.List;
+
 import com.kmdms.common.utils.PageBean;
 import com.kmdms.mapper.LabelMapper;
 import com.kmdms.pojo.Label;
 import com.kmdms.pojo.custom.LabelCustom;
-
-import java.util.List;
 
 public interface LabelMapperCustom extends LabelMapper{
 
@@ -45,7 +45,7 @@ public interface LabelMapperCustom extends LabelMapper{
      */
     void insertLabelsOfStudent(LabelCustom labelCustom) throws Exception;
     /**
-     * 
+     * 后台标签类别
      * @param labelPageBean
      * @return
      * @throws Exception

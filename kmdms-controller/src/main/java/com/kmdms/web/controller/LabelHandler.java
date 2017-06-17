@@ -96,6 +96,7 @@ public class LabelHandler {
         PageBean<LabelCustom> labelPageBean = labelService.getLabelToPage(pc,content);
         //将标签放入request域
         request.setAttribute("labelPageBean", labelPageBean);
+        request.setAttribute("keywords", labelPageBean.getCondition().getContent());
         return "admin/admin_label_list";
     }
     /**

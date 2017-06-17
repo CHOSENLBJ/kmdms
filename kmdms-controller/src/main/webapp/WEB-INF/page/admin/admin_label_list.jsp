@@ -31,12 +31,18 @@
 				</div>
 				<div class="padding border-bottom">
 					<ul class="search" style="padding-left:10px;">
-						<li><input type="text" placeholder="请输入搜索关键字" name="keywords"
+						<li><input id="label_keyword" type="text" placeholder="请输入搜索关键字" name="keywords"
 							class="input"
 							style="width:250px; line-height:17px;display:inline-block" /> <a
-							href="javascript:void(0)" class="button border-main icon-search"
-							onclick=> 搜索</a></li>
+							href="${pageContext.request.contextPath }/label/getLabelList.action?pc=1&content=" class="button border-main icon-search"
+							onclick="getkeyword(this)"> 搜索</a></li>
+						
 					</ul>
+					<script>
+						function getkeyword(a){
+							$(a).attr('href',$(a).attr('href') + $('#label_keyword').val());
+						}
+					</script>
 				</div>
 				<table id="label_attr" class="table table-hover text-center">
 					<tr>

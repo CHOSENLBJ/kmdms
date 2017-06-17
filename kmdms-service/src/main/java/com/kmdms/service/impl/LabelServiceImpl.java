@@ -80,10 +80,11 @@ public class LabelServiceImpl implements LabelService {
 
 	@Override
 	public PageBean<LabelCustom> getLabelToPage(String pageCode,String content) throws Exception {
+		content = content == null ? "" : content;
 		PageBean<LabelCustom> labelPageBean = new PageBean<LabelCustom>();
 		//带条件的标签数
 		labelExample.clear();
-		labelExample.createCriteria().andContentLike(content);
+		labelExample.createCriteria().andContentLike("%"+content+"%");
 		int totalRecord = labelMapperCustom.countByExample(labelExample);
 		//设置pageBean所需参数
 		LabelCustom condition = new LabelCustom();

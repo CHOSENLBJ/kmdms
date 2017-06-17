@@ -5,7 +5,7 @@ $(document).ready(function(){
 			type : 'post',
 			url : url,
 			data : {
-				'cotent' : $('#label_content').val()
+				'content' : $('#label_content').val()
 			},
 			success : function(data){
 				alert(data);

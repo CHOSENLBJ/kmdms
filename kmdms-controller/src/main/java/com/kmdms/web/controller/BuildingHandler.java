@@ -36,8 +36,8 @@ public class BuildingHandler {
 	 * @throws Exception
 	 */
 	@RequestMapping("getBuildingList")
-	public String getBuildingList(HttpServletRequest request,String pageCode) throws Exception{
-		PageBean<BuildingCustom> buildingPageBean = buildingService.selectAllBuilding(pageCode);
+	public String getBuildingList(HttpServletRequest request,String pc) throws Exception{
+		PageBean<BuildingCustom> buildingPageBean = buildingService.selectAllBuilding(pc);
 		request.setAttribute("buildingPageBean", buildingPageBean);
 		return "admin/admin_building_list";
 	}

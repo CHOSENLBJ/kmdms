@@ -4,7 +4,11 @@
   <resultMap id="BaseResultMapCustom" type="com.kmdms.pojo.custom.LabelCustom" >
     <id column="label_id" property="labelId" jdbcType="VARCHAR" />
     <result column="content" property="content" jdbcType="VARCHAR" />
-    <result property="chooseCount" javaType="INTEGER"/>
+  </resultMap>
+  <resultMap id="BaseResultMapPage" type="com.kmdms.pojo.custom.LabelCustom" >
+    <id column="label_id" property="labelId" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="chooseCount" property="chooseCount" javaType="INTEGER"/>
   </resultMap>
   <resultMap id="BaseResultMap" type="com.kmdms.pojo.Label" >
       <id column="label_id" property="labelId" jdbcType="VARCHAR" />
@@ -54,7 +58,7 @@
               (#{stuId}, #{labelId}, #{weight})
   </insert>
   
-  <select id="selectLabelToPage" resultMap="BaseResultMapCustom" parameterType="com.kmdms.common.utils.PageBean">
+  <select id="selectLabelToPage" parameterType="com.kmdms.common.utils.PageBean" resultMap="BaseResultMapPage">
   	SELECT 
   			  label.label_id, content, count(stu_lab.stu_id) as chooseCount
   	FROM
@@ -65,7 +69,7 @@
     		  stu_lab.label_id=label.label_id 
   	<if test="condition != null">
 		<if test="condition.content != null" >
-	        content LIKE concat(concat('%',#{condition.content}),'%')
+	AND       content LIKE concat(concat('%',#{condition.content}),'%')
 	    </if>
     </if>
     GROUP BY  label.label_id

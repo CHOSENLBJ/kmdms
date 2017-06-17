@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.kmdms.mapper.custom.DormitoryMapperCustom" >
+<mapper namespace="com.kmdms.mapper.custom.BuildingMapperCustom" >
   <resultMap id="BaseResultMap" type="com.kmdms.pojo.Building" >
     <id column="building_id" property="buildingId" jdbcType="VARCHAR" />
     <result column="building_name" property="buildingName" jdbcType="VARCHAR" />
@@ -14,8 +14,8 @@
     <result column="floor_count" property="floorCount" jdbcType="INTEGER" />
     <result column="d_count" property="dCount" jdbcType="INTEGER" />
     <result column="total_d_count" property="totalDCount" jdbcType="INTEGER" />
-  	<result property="totalPeople"/>
-  	<result property="bedCount"/>
+  	<result column="totalPeople" property="totalPeople" jdbcType="INTEGER"/>
+  	<result column="bed_count" property="bedCount" jdbcType="INTEGER"/>
   </resultMap>
 
   <select id="selectBuildingToPage" resultMap="BaseResultMapCustom" parameterType="com.kmdms.common.utils.PageBean">

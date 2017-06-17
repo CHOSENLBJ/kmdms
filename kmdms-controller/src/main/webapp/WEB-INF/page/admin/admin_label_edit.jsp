@@ -12,11 +12,12 @@
 <meta http-equiv="description" content="This is my page">
 <title></title>
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath }/css/pintuer.css">
+	href="${pageContext.request.contextPath }/css/admin/pintuer.css">
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath }/css/admin.css">
-<script src="${pageContext.request.contextPath }/js/jquery.js"></script>
-<script src="${pageContext.request.contextPath }/js/pintuer.js"></script>
+	href="${pageContext.request.contextPath }/css/admin/admin.css">
+<script src="${pageContext.request.contextPath }/js/common/jquery-1.9.1.js"></script>
+<script src="${pageContext.request.contextPath }/js/admin/pintuer.js"></script>
+<script src="${pageContext.request.contextPath }/js/admin/editLabel.js"></script>
 </head>
 <body>
 <div class="panel admin-panel">
