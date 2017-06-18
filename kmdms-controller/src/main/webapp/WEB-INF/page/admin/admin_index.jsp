@@ -66,7 +66,7 @@
 		<li><a href="{:U('Index/info')}" target="right" class="icon-home">
 				首页</a></li>
 		<li><a href="##" id="a_leader_txt">网站信息</a></li>
-		<li><b>当前管理者：</b><span style="color:black">中文</span></li>
+		<li><b>当前管理者：</b><span style="color:black">${sessionScope.session_admin}</span></li>
 	</ul>
 	<div class="admin">
 		<!-- 后台页面默认主页 -->

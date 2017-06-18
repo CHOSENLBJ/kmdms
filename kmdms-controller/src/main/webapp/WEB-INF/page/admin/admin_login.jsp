@@ -23,7 +23,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/common/jquery-1.9.1.js"></script>
 
 </head>
-<body>
+<body <%--style="background-image: url('${pageContext.request.contextPath/img/admin/bg1.jpg}')"--%>>
 
 	<h1>学生宿舍管理系统后台登录页面</h1>
 	<div class="login-form">
@@ -36,12 +36,13 @@
 			<img src="${pageContext.request.contextPath }/img/admin/avtar.png" />
 		</div>
 		<form id="admin_forum" action="${pageContext.request.contextPath }/admin/login.action" method="post">
-			<input name="username" id="admin_forum_account" type="text" class="text" value="账号" onFocus="this.value = '';"
+			<input name="adminName" id="admin_forum_account" type="text" value="${adminName}" class="text" value="账号" onFocus="this.value = '';"
 				onBlur="if (this.value == '') {this.value = '账号';}">
 			<div class="key">
-				<input name="password" type="password"  value="Password" onFocus="this.value = '';"
+				<input name="password" type="password"  value="${password}" onFocus="this.value = '';"
 					onBlur="if (this.value == '') {this.value = 'Password';}">
 			</div>
+			${msg}
 			<div class="signin">
 			<input type="submit" value="Login">
 			</div>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+	<admins>
+		<admin>
+			<name>sgc</name>
+			<password>sgc</password>
+		</admin>
+		<admin>
+			<name>admin</name>
+			<password>adminadmin</password>
+		</admin>
+		<admin>
+			<name>cpm</name>
+			<password>cpm</password>
+		</admin>
+	</admins>
+</root>
+

@@ -28,6 +28,11 @@ public class StudentServiceImpl implements StudentService{
 	@Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED, readOnly = true)
 	public StudentCustom loginCheck(StudentCustom studentCustom) throws Exception{
 		String stuId = studentCustom.getStuId();
+		if(stuId == null || "".equals(stuId)){
+			KMDMSException exception = new KMDMSException("学号不能为空！", "login");
+			exception.getModel().put("studentCustom", studentCustom);
+			throw exception;
+		}
 		//根据id查询学生
 		StudentCustom sc = studentMapperCustom.selectStudentById(stuId);
 		if(sc != null){//若查询结果
