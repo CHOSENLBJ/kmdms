@@ -48,4 +48,11 @@ public interface LabelService {
      * @return
      */
 	PageBean<LabelCustom> getLabelToPage(String pageCode,String content) throws Exception;
+
+    /**
+     * 根据id删除标签
+     * @param labelId
+     * @throws Exception
+     */
+    void deleteLabelById(String labelId) throws Exception;
 }

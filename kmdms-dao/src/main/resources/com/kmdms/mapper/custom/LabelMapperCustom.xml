@@ -69,7 +69,7 @@
     		  stu_lab.label_id=label.label_id 
   	<if test="condition != null">
 		<if test="condition.content != null" >
-	AND       content LIKE concat(concat('%',#{condition.content}),'%')
+	WHERE     content LIKE concat(concat('%',#{condition.content}),'%')
 	    </if>
     </if>
     GROUP BY  label.label_id

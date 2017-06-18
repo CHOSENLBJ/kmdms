@@ -92,6 +92,7 @@ public class LabelHandler {
      */
     @RequestMapping("/getLabelList")
     public String getLabelList(HttpServletRequest request,String pc,String content) throws Exception {
+
         //获得所有标签
         PageBean<LabelCustom> labelPageBean = labelService.getLabelToPage(pc,content);
         //将标签放入request域
@@ -105,7 +106,7 @@ public class LabelHandler {
      * @return
      * @throws Exception
      */
-    @RequestMapping("toEditLabel")
+    @RequestMapping("/toEditLabel")
     public String toEditLabel(String labelId) throws Exception{
     	return "admin/admin_label_edit";
     }
@@ -114,10 +115,21 @@ public class LabelHandler {
      * @return
      * @throws Exception 
      */
-    @RequestMapping("editLabel")
+    @RequestMapping("/editLabel")
     public void editLabel(HttpServletResponse response,HttpServletRequest request,LabelCustom labelCustom) throws Exception{
     	LabelCustom label = labelService.createLabel(labelCustom.getContent());
     	if(label != null) response.getWriter().print("success");
     	else response.getWriter().print("fail");
+    }
+
+    /**
+     * 删除标签
+     * @param labelId
+     * @throws Exception
+     */
+    @RequestMapping("/deleteLabel")
+    public String deleteLabel(String labelId, String pc, String content) throws Exception{
+        labelService.deleteLabelById(labelId);
+        return "forward:getLabelList.action";
     }
 }

@@ -54,7 +54,14 @@
 					<tr>
 						<td>${labelCustom.content }</td>
 						<td>${labelCustom.chooseCount }</td>
-						<td><div class="button-group"> <a class="button border-main" href="admin_building_edit.html"><span class="icon-edit"></span> 修改</a> <a class="button border-red" href="" onclick="return del()"><span class="icon-trash-o"></span> 删除</a> </div></td>
+						<td><div class="button-group">
+								<a class="button border-main" href="admin_building_edit.html">
+									<span class="icon-edit"></span> 修改
+								</a>
+								<a class="button border-red" href="" onclick="return del('${pageContext.request.contextPath}/label/deleteLabel.action?labelId=${labelCustom.labelId}&${labelPageBean.pageCode }&content=${keywords }')">
+									<span class="icon-trash-o"></span> 删除
+								</a>
+						</div></td>
 					</tr>
 					</c:forEach>
 					<tr>
@@ -102,8 +109,9 @@
 		</form>
 		<script type="text/javascript">
 			//单个删除
-			function del(id, mid, iscid) {
+			function del(url) {
 				if (confirm("您确定要删除吗?")) {
+				    window.location.href = url;
 				}
 			}
 		</script>

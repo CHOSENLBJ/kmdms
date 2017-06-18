@@ -4,7 +4,6 @@ import com.kmdms.common.utils.PageBean;
 import com.kmdms.mapper.custom.LabelMapperCustom;
 import com.kmdms.pojo.Label;
 import com.kmdms.pojo.LabelExample;
-import com.kmdms.pojo.LabelExample.Criteria;
 import com.kmdms.pojo.custom.LabelCustom;
 import com.kmdms.service.LabelService;
 
@@ -81,6 +80,8 @@ public class LabelServiceImpl implements LabelService {
 	@Override
 	public PageBean<LabelCustom> getLabelToPage(String pageCode,String content) throws Exception {
 		content = content == null ? "" : content;
+        //对content乱码处理
+        content = new String(content.getBytes("ISO-8859-1"), "utf-8");
 		PageBean<LabelCustom> labelPageBean = new PageBean<LabelCustom>();
 		//带条件的标签数
 		labelExample.clear();
@@ -100,4 +101,12 @@ public class LabelServiceImpl implements LabelService {
 		labelPageBean.setBeanList(labelCustomList);
 		return labelPageBean;
 	}
+
+    @Override
+    @Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED, readOnly = false)
+    public void deleteLabelById(String labelId) throws Exception {
+        labelMapperCustom.deleteByPrimaryKey(labelId);
+    }
+
+
 }
