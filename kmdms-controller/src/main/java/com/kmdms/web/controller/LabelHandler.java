@@ -107,7 +107,10 @@ public class LabelHandler {
      * @throws Exception
      */
     @RequestMapping("/toEditLabel")
-    public String toEditLabel(String labelId) throws Exception{
+    public String toEditLabel(String labelId, HttpServletRequest request) throws Exception{
+        //得到需要修改的标签
+        LabelCustom labelCustom = labelService.findLabelById(labelId);
+        request.setAttribute("labelEdit", labelCustom);
     	return "admin/admin_label_edit";
     }
     /**
@@ -117,7 +120,7 @@ public class LabelHandler {
      */
     @RequestMapping("/editLabel")
     public void editLabel(HttpServletResponse response,HttpServletRequest request,LabelCustom labelCustom) throws Exception{
-    	LabelCustom label = labelService.createLabel(labelCustom.getContent());
+    	LabelCustom label = labelService.createOrEditLabel(labelCustom);
     	if(label != null) response.getWriter().print("success");
     	else response.getWriter().print("fail");
     }

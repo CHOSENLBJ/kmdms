@@ -51,4 +51,12 @@ public interface LabelMapperCustom extends LabelMapper{
      * @throws Exception
      */
 	List<LabelCustom> selectLabelToPage(PageBean<LabelCustom> labelPageBean) throws Exception;
+
+    /**
+     * 根据id查找标签
+     * @param labelId
+     * @return
+     * @throws Exception
+     */
+    LabelCustom selectLabelById(String labelId) throws Exception;
 }

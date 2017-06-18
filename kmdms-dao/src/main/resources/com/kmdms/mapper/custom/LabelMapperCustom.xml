@@ -75,4 +75,13 @@
     GROUP BY  label.label_id
     LIMIT #{pagePosition}, #{pageRecord}
   </select>
+
+  <select id="selectLabelById" parameterType="string" resultMap="BaseResultMapCustom">
+    SELECT
+              label_id, content
+    FROM
+              label
+    WHERE
+              label_id = #{labelId}
+  </select>
 </mapper>

@@ -55,7 +55,7 @@
 						<td>${labelCustom.content }</td>
 						<td>${labelCustom.chooseCount }</td>
 						<td><div class="button-group">
-								<a class="button border-main" href="admin_building_edit.html">
+								<a class="button border-main" href="${pageContext.request.contextPath}/label/toEditLabel.action?labelId=${labelCustom.labelId}">
 									<span class="icon-edit"></span> 修改
 								</a>
 								<a class="button border-red" href="" onclick="return del('${pageContext.request.contextPath}/label/deleteLabel.action?labelId=${labelCustom.labelId}&${labelPageBean.pageCode }&content=${keywords }')">

@@ -55,4 +55,28 @@ public interface LabelService {
      * @throws Exception
      */
     void deleteLabelById(String labelId) throws Exception;
+
+    /**
+     * 编辑标签
+     * @param labelCustom
+     * @return
+     * @throws Exception
+     */
+    LabelCustom editLabel(LabelCustom labelCustom) throws Exception;
+
+    /**
+     * 创建或编辑标签
+     * @param labelCustom
+     * @return
+     * @throws Exception
+     */
+    LabelCustom createOrEditLabel(LabelCustom labelCustom) throws Exception;
+
+    /**
+     * 根据id查找标签
+     * @param labelId
+     * @return
+     * @throws Exception
+     */
+    LabelCustom findLabelById(String labelId) throws Exception;
 }

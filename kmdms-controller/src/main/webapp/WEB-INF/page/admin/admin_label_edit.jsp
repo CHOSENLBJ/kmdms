@@ -30,8 +30,9 @@
           <label>标签内容：</label>
         </span>
         <span class="field">
-			<textarea name="content" id="label_content"></textarea>
+			<textarea name="content" id="label_content">${labelEdit.content}</textarea>
         </span>
+            <input type="hidden" id="labID" name="labelId" value="${labelEdit.labelId}"/>
       </span>
       <br />
         <span class="field" style="float:right">

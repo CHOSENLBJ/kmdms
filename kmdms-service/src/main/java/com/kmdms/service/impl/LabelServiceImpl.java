@@ -55,6 +55,30 @@ public class LabelServiceImpl implements LabelService {
     }
 
     @Override
+    @Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED, readOnly = false)
+    public LabelCustom editLabel(LabelCustom labelCustom) throws Exception{
+        if(labelCustom.getContent() != null && !"".equals(labelCustom.getContent())){
+            labelMapperCustom.updateByPrimaryKeySelective(labelCustom);
+        }
+        return labelCustom;
+    }
+
+    @Override
+    @Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED, readOnly = false)
+    public LabelCustom createOrEditLabel(LabelCustom labelCustom) throws Exception {
+        if(labelCustom.getLabelId() != null && !"".equals(labelCustom.getLabelId())){
+            return this.editLabel(labelCustom);
+        } else {
+            return this.createLabel(labelCustom.getContent());
+        }
+    }
+
+    @Override
+    public LabelCustom findLabelById(String labelId) throws Exception {
+        return labelMapperCustom.selectLabelById(labelId);
+    }
+
+    @Override
     @Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED, readOnly = true)
     public List<Label> findLabelsByStuId(String stuId) throws Exception {
         return labelMapperCustom.selectLabelsByStuId(stuId);
