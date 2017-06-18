@@ -54,4 +54,17 @@ public class AdminHandler {
         return "admin/admin_index";
     }
 
+
+    /**
+     * 注销
+     * @param session
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/quit")
+    public String quit(HttpSession session) throws Exception{
+        session.invalidate();
+        return "redirect:toLogin.action";
+    }
+
 }
