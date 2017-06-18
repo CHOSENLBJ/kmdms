@@ -1,11 +1,12 @@
 package com.kmdms.mapper.custom;
 
 
+import com.kmdms.mapper.MessageMapper;
 import com.kmdms.pojo.Message;
 
 import java.util.List;
 
-public interface MessageMapperCustom {
+public interface MessageMapperCustom extends MessageMapper {
 
     /**
      * 根据学生Id查找相关消息

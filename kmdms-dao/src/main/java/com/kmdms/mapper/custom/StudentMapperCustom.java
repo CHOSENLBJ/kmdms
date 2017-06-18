@@ -18,4 +18,10 @@ public interface StudentMapperCustom extends StudentMapper {
      */
     StudentCustom selectStudentById(String stuId) throws Exception;
 
+    /**
+     * 得到所有学生id
+     * @return
+     * @throws Exception
+     */
+    List<String> selectAllTheIds() throws Exception;
 }

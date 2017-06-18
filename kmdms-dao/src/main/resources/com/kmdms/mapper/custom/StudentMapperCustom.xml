@@ -28,4 +28,11 @@
     WHERE
             stu_id = #{stuId}
   </select>
+
+  <select id="selectAllTheIds" resultType="string">
+    SELECT
+            stu_id
+    FROM
+            student
+  </select>
 </mapper>

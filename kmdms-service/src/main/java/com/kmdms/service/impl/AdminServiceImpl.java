@@ -6,6 +6,9 @@ import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -14,7 +17,9 @@ import java.util.List;
  */
 @Service
 public class AdminServiceImpl implements AdminService {
+
     @Override
+    @Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED, readOnly = true)
     public void loginCheck(String adminName, String password) throws Exception {
         if(adminName != null && !"".equals(adminName)){
             SAXReader saxReader = new SAXReader();

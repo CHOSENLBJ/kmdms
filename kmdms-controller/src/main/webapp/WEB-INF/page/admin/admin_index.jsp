@@ -40,7 +40,7 @@
 			<span class="icon-bullhorn"></span>公告管理
 		</h2>
 		<ul>
-			<li><a href="admin_send_msg.html" target="right"><span
+			<li><a href="${pageContext.request.contextPath}/message/toSendMessage.action" target="right"><span
 					class="icon-caret-right"></span>发送通知</a></li>
 		</ul>
 		<h2>

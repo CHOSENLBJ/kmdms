@@ -24,4 +24,9 @@ public interface MessageService {
      */
     void updateMessageIsReadTrue(String stuId) throws Exception;
 
+    /**
+     * 发送通知给所有学生
+     * @param content
+     */
+    void sendMessageToEveryone(String content) throws Exception;
 }

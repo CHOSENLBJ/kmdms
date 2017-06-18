@@ -45,4 +45,26 @@ public class MessageHandler {
         pw.close();
     }
 
+    /**
+     * 跳转到发送公告页面
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/toSendMessage")
+    public String toSendMessage() throws Exception{
+        return "admin/admin_message";
+    }
+
+    /**
+     * 发送公告
+     * @param content
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping("/sendMessage")
+    public String sendMessage(String content) throws Exception{
+        messageService.sendMessageToEveryone(content);
+        return "redirect:toSendMessage.action";
+    }
+
 }
