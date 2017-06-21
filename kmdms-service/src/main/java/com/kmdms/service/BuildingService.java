@@ -11,5 +11,7 @@ public interface BuildingService {
 	 * @throws Exception
 	 */
 	PageBean<BuildingCustom> selectAllBuilding(String pageCode) throws Exception;
+
+	String editBuilding(BuildingCustom buildingCustom) throws Exception;
 	
 }

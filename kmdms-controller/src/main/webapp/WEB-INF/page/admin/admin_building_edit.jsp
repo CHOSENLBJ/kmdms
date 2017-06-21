@@ -12,17 +12,19 @@
 	<title></title>
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/admin/pintuer.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/admin/admin.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/admin/dormitory.css">
 <script src="${pageContext.request.contextPath }/js/common/jquery-1.9.1.js"></script>
 <script src="${pageContext.request.contextPath }/js/admin/pintuer.js"></script>
 <script src="${pageContext.request.contextPath }/js/admin/dormitory.js"></script>
+<script src="${pageContext.request.contextPath }/js/admin/editBuilding.js"></script>
 </head>
 <body>
 <div class="panel admin-panel">
   <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>宿舍</strong></div>
   <div class="body-content">
-    <form method="post" class="form-x" action="user/admin_user_editByAdmin.action">  
+    <form id="admin_building_form" method="post" class="form-x" data-action="${pageContext.request.contextPath }/building/editBuilding.action" action="">  
       <div class="form-group" >
-      	
+      	<input type="hidden" value="${buildingCustom.buildingId}" id="dormitory_buildId">
       	<div id="admin_dormitory">
       		<div id="admin_dormitory_top"></div>
       		<div id="admin_dormitory_main">
@@ -34,7 +36,7 @@
           <label>宿舍楼名：</label>
         </span>
         <span class="field">
-          <input id="dormitory_buildName" type="text" class="input w50" value="" name=""  />
+          <input id="dormitory_buildName" type="text" class="input w50" value="" name="buildingName"  />
           <span class="tips"></span>
         </span>
 				<span class="label">
@@ -51,14 +53,14 @@
           <label>层间数：</label>
         </span>
         <span class="field">
-          <input id="dormitory_count" type="text" class="input w50" value="" name=""  />
+          <input id="dormitory_count" type="text" class="input w50" value="" name="dCount"  />
           <span class="tips"></span>
         </span>
 				<span class="label">
           <label>楼层数：</label>
         </span>
         <span class="field">
-          <input id="dormitory_floorCount" type="text" class="input w50" value="" name=""  />
+          <input id="dormitory_floorCount" type="text" class="input w50" value="" name="floorCount"  />
           <span class="tips"></span>
         </span>
       </span>

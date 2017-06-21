@@ -1,0 +1,46 @@
+
+#admin_dormitory{
+	margin-bottom: 20px;
+}
+
+
+.body-content{
+	overflow: auto;
+}
+
+#admin_dormitory_top{
+	margin: 0 15%;
+	width: 0;
+    height: 0;
+    border-left: 300px solid transparent;
+    border-right: 300px solid transparent;
+    border-bottom: 100px solid #EEEEEE;
+}
+
+#admin_dormitory_main{
+	margin: 0 15%;
+	background-color: #EEE;
+	height: 240px;
+	width: 600px;
+}
+
+.admin_dormitory_main_unit{
+	position: relative;
+	background-color: #FFF;
+	z-index: 1;
+	margin: 10px;
+	width: 70px;
+	height: 35px;
+	display: inline-block;
+}
+.admin_dormitory_main_floor {
+	text-align: center;
+}
+
+.admin_dormitory_main_unit span{
+	top: 8px;
+	left: 25px;
+	position: absolute;
+}
+
+

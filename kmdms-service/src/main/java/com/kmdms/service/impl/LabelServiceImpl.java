@@ -102,7 +102,8 @@ public class LabelServiceImpl implements LabelService {
     }
 
 	@Override
-	public PageBean<LabelCustom> getLabelToPage(String pageCode,String content) throws Exception {
+	@Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED, readOnly = true)
+    public PageBean<LabelCustom> getLabelToPage(String pageCode,String content) throws Exception {
 		content = content == null ? "" : content;
         //对content乱码处理
         content = new String(content.getBytes("ISO-8859-1"), "utf-8");

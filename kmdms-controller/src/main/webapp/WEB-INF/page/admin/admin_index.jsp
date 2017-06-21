@@ -61,6 +61,13 @@
 			<li><a href="${pageContext.request.contextPath }/building/toEditBuilding.action" target="right"><span
 					class="icon-caret-right"></span>创建宿舍</a></li>
 		</ul>
+		<h2>
+			<span class="icon-flag"></span>学生管理
+		</h2>
+		<ul>
+			<li><a href=""><span
+					class="icon-caret-right"></span>学生列表</a></li>
+		</ul>
 	</div>
 	<ul class="bread">
 		<li><a href="{:U('Index/info')}" target="right" class="icon-home">

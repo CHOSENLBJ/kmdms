@@ -25,8 +25,18 @@ public class BuildingHandler {
 	 */
 	@RequestMapping("toEditBuilding")
 	public String toEditBuilding(HttpServletRequest request, String dormitoryId) throws Exception{
-		
 		return "admin/admin_building_edit";
+	}
+	/**
+	 * 创建或修改宿舍
+	 * @param request
+	 * @param buildingCustom
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("editBuilding")
+	public void EditBuilding(HttpServletRequest request, BuildingCustom buildingCustom) throws Exception{
+		buildingService.editBuilding(buildingCustom);
 	}
 	/**
 	 * 得到所有宿舍，带分页
