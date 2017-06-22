@@ -46,7 +46,7 @@
 						<td>${building.dCount }</td>
 						<td>${building.floorCount }</td>
 						<td>${building.totalPeople }</td>
-						<td><div class="button-group"> <a class="button border-main" href="${pageContext.request.contextPath }/building/toEditBuilding.action"><span class="icon-edit"></span> 修改</a> <a class="button border-red" href="" onclick="return del()"><span class="icon-trash-o"></span> 删除</a> </div></td>
+						<td><div class="button-group"> <a class="button border-main" href="${pageContext.request.contextPath }/building/toEditBuilding.action?buildingId=${building.buildingId }"><span class="icon-edit"></span> 修改</a> <a class="button border-red" href="${pageContext.request.contextPath }/building/deleteBuilding.action?buildingId=${building.buildingId }" onclick="return $.deleteBuilding(this)"><span class="icon-trash-o"></span> 删除</a> </div></td>
 					</tr>
 					</c:forEach>
 					<!--分页-->

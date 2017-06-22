@@ -1,6 +1,7 @@
 package com.kmdms.web.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,7 +25,11 @@ public class BuildingHandler {
 	 * @throws Exception
 	 */
 	@RequestMapping("toEditBuilding")
-	public String toEditBuilding(HttpServletRequest request, String dormitoryId) throws Exception{
+	public String toEditBuilding(HttpServletRequest request, String buildingId) throws Exception{
+		if(buildingId != null && !"".equals(buildingId)) {
+			BuildingCustom buildingCustom = buildingService.selectBuilding(buildingId);
+			request.setAttribute("buildingCustom", buildingCustom);
+		}
 		return "admin/admin_building_edit";
 	}
 	/**
@@ -35,8 +40,21 @@ public class BuildingHandler {
 	 * @throws Exception
 	 */
 	@RequestMapping("editBuilding")
-	public void EditBuilding(HttpServletRequest request, BuildingCustom buildingCustom) throws Exception{
-		buildingService.editBuilding(buildingCustom);
+	public void EditBuilding(HttpServletResponse response, HttpServletRequest request, BuildingCustom buildingCustom) throws Exception{
+		String msg = buildingService.editBuilding(buildingCustom);
+		response.getWriter().print(msg);
+	}
+	/**
+	 * 删除宿舍楼以及宿舍楼中的宿舍
+	 * @param response
+	 * @param request
+	 * @param buildingId
+	 * @throws Exception
+	 */
+	@RequestMapping("deleteBuilding")
+	public void deleteBuilding(HttpServletResponse response, HttpServletRequest request, String buildingId) throws Exception{
+		String msg = buildingService.deleteBuilding(buildingId);
+		response.getWriter().print(msg);
 	}
 	/**
 	 * 得到所有宿舍，带分页

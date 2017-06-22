@@ -18,4 +18,18 @@ $(document).ready(function(){
 		});
 		return false;
 	});
+	$.deleteBuilding = function(a){
+		var url = $(a).attr('href');
+		$.ajax({
+			type : 'post',
+			url : url,
+			data : {
+				'buildingId' : $('#dormitory_buildId').val(),
+			},
+			success : function(data){
+				alert(data);
+			}
+		});
+		return false;
+	};
 });

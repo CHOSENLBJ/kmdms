@@ -11,7 +11,26 @@ public interface BuildingService {
 	 * @throws Exception
 	 */
 	PageBean<BuildingCustom> selectAllBuilding(String pageCode) throws Exception;
-
+	/**
+	 * 创建或修改宿舍
+	 * @param buildingCustom
+	 * @return
+	 * @throws Exception
+	 */
 	String editBuilding(BuildingCustom buildingCustom) throws Exception;
+	/**
+	 * 删除宿舍楼
+	 * @param buildingId
+	 * @return
+	 * @throws Exception
+	 */
+	String deleteBuilding(String buildingId) throws Exception;
+	/**
+	 * 查找宿舍
+	 * @param buildingId
+	 * @return
+	 * @throws Exception
+	 */
+	BuildingCustom selectBuilding(String buildingId) throws Exception;
 	
 }

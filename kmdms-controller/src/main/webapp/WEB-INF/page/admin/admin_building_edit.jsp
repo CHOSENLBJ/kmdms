@@ -36,14 +36,14 @@
           <label>宿舍楼名：</label>
         </span>
         <span class="field">
-          <input id="dormitory_buildName" type="text" class="input w50" value="" name="buildingName"  />
+          <input id="dormitory_buildName" type="text" class="input w50" value="${buildingCustom.buildingName}" name="buildingName"  />
           <span class="tips"></span>
         </span>
 				<span class="label">
           <label>床位数：</label>
         </span>
         <span class="field">
-          <input id="dormitory_bedNum" type="text" class="input w50" value="" name=""  />
+          <input id="dormitory_bedNum" type="text" class="input w50" value="${buildingCustom.bedCount }" name=""  />
           <span class="tips"></span>
         </span>
       </span>
@@ -53,14 +53,14 @@
           <label>层间数：</label>
         </span>
         <span class="field">
-          <input id="dormitory_count" type="text" class="input w50" value="" name="dCount"  />
+          <input id="dormitory_count" type="text" class="input w50" value="${buildingCustom.dCount }" name="dCount"  />
           <span class="tips"></span>
         </span>
 				<span class="label">
           <label>楼层数：</label>
         </span>
         <span class="field">
-          <input id="dormitory_floorCount" type="text" class="input w50" value="" name="floorCount"  />
+          <input id="dormitory_floorCount" type="text" class="input w50" value="${buildingCustom.floorCount }" name="floorCount"  />
           <span class="tips"></span>
         </span>
       </span>
