@@ -20,6 +20,7 @@ import com.kmdms.service.BuildingService;
 
 @Service 
 public class BuildingServiceImpl implements BuildingService{
+	
 	@Autowired
 	private BuildingMapperCustom buildingMapperCustom;
 	@Autowired

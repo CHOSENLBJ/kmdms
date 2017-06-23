@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	$('#admin_building_form').on('submit',function(){
 		var url = $(this).attr('data-action');
+		
 		$.ajax({
 			type : 'post',
 			url : url,

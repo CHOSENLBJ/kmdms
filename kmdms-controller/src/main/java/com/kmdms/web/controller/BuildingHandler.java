@@ -45,7 +45,7 @@ public class BuildingHandler {
 		response.getWriter().print(msg);
 	}
 	/**
-	 * 删除宿舍楼以及宿舍楼中的宿舍
+	 * 删除宿舍楼及宿舍楼中的宿舍
 	 * @param response
 	 * @param request
 	 * @param buildingId
@@ -57,7 +57,7 @@ public class BuildingHandler {
 		response.getWriter().print(msg);
 	}
 	/**
-	 * 得到所有宿舍，带分页
+	 * 得到所有宿舍，带分
 	 * @param request
 	 * @param pageCode
 	 * @return

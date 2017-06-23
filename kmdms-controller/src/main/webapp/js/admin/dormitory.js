@@ -50,6 +50,7 @@ $(document).ready(function(){
 			}
 		}
 	};
+	
 	showBuild();
 	//预览
 	$('#dormitory_preview').on('click',function(){

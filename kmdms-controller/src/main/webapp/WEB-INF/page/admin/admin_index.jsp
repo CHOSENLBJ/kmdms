@@ -11,9 +11,9 @@
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
 <title>学生宿舍后台管理</title>
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/admin/pintuer.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/admin/admin.css">
-<script src="${pageContext.request.contextPath }/js/common/jquery-1.9.1.js"></script>
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/admin/pintuer.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/admin/admin.css">
+	<script src="${pageContext.request.contextPath }/js/common/jquery-1.9.1.js"></script>
 </head>
 
 <body style="background-color:#f2f9fd;">

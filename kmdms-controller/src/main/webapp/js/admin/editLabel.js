@@ -1,5 +1,6 @@
 $(document).ready(function(){
 	$('#admin_label_form').on('submit',function(){
+		
 		var url = $(this).attr('data-action');
 		$.ajax({
 			type : 'post',

@@ -10,13 +10,13 @@
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
 	<title></title>
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/admin/pintuer.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/admin/admin.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/admin/dormitory.css">
-<script src="${pageContext.request.contextPath }/js/common/jquery-1.9.1.js"></script>
-<script src="${pageContext.request.contextPath }/js/admin/pintuer.js"></script>
-<script src="${pageContext.request.contextPath }/js/admin/dormitory.js"></script>
-<script src="${pageContext.request.contextPath }/js/admin/editBuilding.js"></script>
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/admin/pintuer.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/admin/admin.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/admin/dormitory.css">
+	<script src="${pageContext.request.contextPath }/js/common/jquery-1.9.1.js"></script>
+	<script src="${pageContext.request.contextPath }/js/admin/pintuer.js"></script>
+	<script src="${pageContext.request.contextPath }/js/admin/dormitory.js"></script>
+	<script src="${pageContext.request.contextPath }/js/admin/editBuilding.js"></script>
 </head>
 <body>
 <div class="panel admin-panel">
