@@ -34,7 +34,7 @@
 						</select>
 						<input type="text" placeholder="请输入搜索关键字" name="keywords"
 						class="input" value="${keywords }"
-						style="width:250px; line-height:17px;display:inline-block" /> 
+						style="width:250px; line-height:17px;display:inline-block" />
 						<input class="button border-main icon-search"
 						onclick="changesearch()" type="submit"  value="搜索" />
 					</li>

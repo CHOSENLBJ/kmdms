@@ -17,6 +17,20 @@
         <result column="note" property="note" jdbcType="VARCHAR" />
     </resultMap>
 
+    <resultMap id="BaseResultMapCustomAdminStudentPage" type="com.kmdms.pojo.custom.StudentCustom" >
+        <id column="stu_id" property="stuId" jdbcType="VARCHAR" />
+        <result column="stu_name" property="stuName" jdbcType="VARCHAR" />
+        <result column="bed_num" property="bedNum" jdbcType="INTEGER" />
+        <association property="dormitoryCustom" javaType="com.kmdms.pojo.custom.DormitoryCustom">
+            <id column="dormitory_id" property="dormitoryId" jdbcType="VARCHAR" />
+            <result column="room_num" property="roomNum" jdbcType="VARCHAR" />
+            <association property="building" javaType="com.kmdms.pojo.Building">
+                <id column="building_id" property="buildingId" jdbcType="VARCHAR" />
+                <result column="building_name" property="buildingName" jdbcType="VARCHAR" />
+            </association>
+        </association>
+    </resultMap>
+
   <select id="selectStudentById" parameterType="string" resultMap="BaseResultMapCustom">
     SELECT stu_id, stu_name,
             password, stu_college,
@@ -34,5 +48,22 @@
             stu_id
     FROM
             student
+  </select>
+
+  <select id="selectStudentToPage" parameterType="com.kmdms.common.utils.PageBean" resultMap="BaseResultMapCustomAdminStudentPage">
+     SELECT
+            s.stu_id, s.stu_name, b.building_name, d.room_num, s.bed_num, d.dormitory_id, b.building_id
+     FROM
+            student s, dormitory d, building b
+     WHERE
+            s.dormitory_id = d.dormitory_id
+     AND
+            d.building_id = b.building_id
+     <if test="condition != null">
+         <if test="condition.stuId != null and condition.stuId != ''">
+     AND    s.stu_id = #{condition.stuId}
+         </if>
+     </if>
+      LIMIT #{pagePosition}, #{pageRecord}
   </select>
 </mapper>

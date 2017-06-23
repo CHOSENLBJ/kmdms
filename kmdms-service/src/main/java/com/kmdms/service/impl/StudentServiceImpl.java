@@ -1,6 +1,8 @@
 package com.kmdms.service.impl;
 
+import com.kmdms.common.utils.PageBean;
 import com.kmdms.mapper.custom.StudentMapperCustom;
+import com.kmdms.pojo.StudentExample;
 import com.kmdms.pojo.custom.StudentCustom;
 import com.kmdms.common.exception.KMDMSException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +14,17 @@ import org.springframework.transaction.annotation.Transactional;
 import com.kmdms.pojo.Student;
 import com.kmdms.service.StudentService;
 
+import java.util.List;
+
 @Service
 public class StudentServiceImpl implements StudentService{
 
 	@Autowired
 	private StudentMapperCustom studentMapperCustom;
+
+	private static StudentExample studentExample = new StudentExample();
+	//每页记录数
+	private final String pageRecord = "5";
 	
 	@Override
 	@Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED, readOnly = false)
@@ -68,6 +76,32 @@ public class StudentServiceImpl implements StudentService{
 		if(studentCustom.getNote() != null && !"".equals(studentCustom.getNote())){
 			session_stu.setNote(studentCustom.getNote());
 		}
+	}
+
+	@Override
+	@Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED, readOnly = true)
+	public PageBean<StudentCustom> getStudentToPage(String pageCode, String stuId) throws Exception {
+		stuId = stuId == null ? "" : stuId;
+		PageBean<StudentCustom> studentPageBean = new PageBean<StudentCustom>();
+		//带条件的标签数
+		studentExample.clear();
+		if(!"".equals(stuId)){
+			studentExample.createCriteria().andStuIdEqualTo(stuId);
+		}
+		int totalRecord = studentMapperCustom.countByExample(studentExample);
+		//设置pageBean所需参数
+		StudentCustom condition = new StudentCustom();
+		condition.setStuId(stuId);
+		studentPageBean.setPageCode(pageCode);
+		studentPageBean.setCondition(condition);
+		studentPageBean.setPageRecord(pageRecord);
+		studentPageBean.setPagePosition(pageRecord, pageCode);
+		studentPageBean.setTotalPage(pageRecord, totalRecord);
+		studentPageBean.setTotalRecord(totalRecord);
+		//执行查询语句
+		List<StudentCustom> studentCustomList = studentMapperCustom.selectStudentToPage(studentPageBean);
+		studentPageBean.setBeanList(studentCustomList);
+		return studentPageBean;
 	}
 
 

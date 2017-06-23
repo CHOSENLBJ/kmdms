@@ -1,5 +1,6 @@
 package com.kmdms.mapper.custom;
 
+import com.kmdms.common.utils.PageBean;
 import com.kmdms.mapper.StudentMapper;
 import com.kmdms.pojo.Student;
 import com.kmdms.pojo.StudentExample;
@@ -24,4 +25,12 @@ public interface StudentMapperCustom extends StudentMapper {
      * @throws Exception
      */
     List<String> selectAllTheIds() throws Exception;
+
+    /**
+     * 查询后台学生列表
+     * @param studentPageBean
+     * @return
+     * @throws Exception
+     */
+    List<StudentCustom> selectStudentToPage(PageBean<StudentCustom> studentPageBean) throws Exception;
 }

@@ -40,7 +40,7 @@ public class BuildingHandler {
 	 * @throws Exception
 	 */
 	@RequestMapping("editBuilding")
-	public void EditBuilding(HttpServletResponse response, HttpServletRequest request, BuildingCustom buildingCustom) throws Exception{
+	public void editBuilding(HttpServletResponse response, HttpServletRequest request, BuildingCustom buildingCustom) throws Exception{
 		String msg = buildingService.editBuilding(buildingCustom);
 		response.getWriter().print(msg);
 	}

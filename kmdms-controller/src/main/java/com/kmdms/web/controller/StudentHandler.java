@@ -4,6 +4,7 @@ package com.kmdms.web.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.kmdms.common.utils.PageBean;
 import com.kmdms.pojo.Label;
 import com.kmdms.pojo.Message;
 import com.kmdms.pojo.custom.DormitoryCustom;
@@ -112,5 +113,16 @@ public class StudentHandler{
 		StudentCustom session_stu = (StudentCustom) session.getAttribute("session_stu");
 		studentService.editStudentInfo(studentCustom, session_stu);
 		return "redirect:index.action";
+	}
+
+	@RequestMapping("/getStudentList")
+	public String getStudentList(HttpServletRequest request,String pc,String stuId) throws Exception{
+
+		//获得所有标签
+		PageBean<StudentCustom> studentPageBean = studentService.getStudentToPage(pc,stuId);
+		//将标签放入request域
+		request.setAttribute("studentPageBean", studentPageBean);
+		request.setAttribute("keywords", studentPageBean.getCondition().getStuId());
+    	return "admin/admin_student_list";
 	}
 }
