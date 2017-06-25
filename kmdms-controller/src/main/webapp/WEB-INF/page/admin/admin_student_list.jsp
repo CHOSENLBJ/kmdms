@@ -11,8 +11,10 @@
 	<title></title>
 		<link rel="stylesheet" href="${pageContext.request.contextPath }/css/admin/pintuer.css">
 		<link rel="stylesheet" href="${pageContext.request.contextPath }/css/admin/admin.css">
+		<link rel="stylesheet" href="${pageContext.request.contextPath }/css/admin/join.css">
 		<script src="${pageContext.request.contextPath }/js/common/jquery-1.9.1.js"></script>
 		<script src="${pageContext.request.contextPath }/js/admin/pintuer.js"></script>
+		<script src="${pageContext.request.contextPath }/js/admin/joinDormitory.js"></script>
 		<style>
 			#dormitory_attr td{
 				vertical-align: middle;
@@ -59,10 +61,10 @@
 								<td>${student.dormitoryCustom.roomNum}</td>
 								<td>${student.bedNum}</td>
 								<td><div class="button-group">
-									<a class="button border-main" href="${pageContext.request.contextPath }/building/toEditBuilding.action">
+									<a class="button border-main" href="#" onclick="return join()">
 										<span class="icon-edit"></span> 修改
 									</a>
-									<a class="button border-red" href="" onclick="return del()">
+									<a class="button border-red" href="#" onclick="return del()">
 										<span class="icon-trash-o"></span> 删除
 									</a>
 								</div></td>
@@ -116,6 +118,27 @@
         		</div>
 			</div>
 		</form>
+		<div id="chooseAddress">
+			<div>
+				<h2>选择宿舍</h2>
+			</div>
+			<div>
+				<select>
+					<option>选择宿舍楼</option>
+				</select>
+				<select>
+					<option>选择宿舍</option>
+				</select>
+				<select>
+					<option>选择床号</option>
+				</select>
+			</div>
+			<div>
+				<button type="submit" class="bg-main">确定</button>
+			</div>
+			<span id="close">X</span>
+		</div>
+		<div class="mask"></div>
 		<script type="text/javascript">
 			//单个删除
 			function del(id, mid, iscid) {

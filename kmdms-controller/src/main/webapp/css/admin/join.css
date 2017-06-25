@@ -1,0 +1,48 @@
+#chooseAddress{
+	border-radius: 10px;
+	text-align: center;
+	background-color: #FFF ;
+	z-index: 101;
+	display: none;
+	position: fixed;
+	top: 30%;
+	left: 40%;
+	width: 400px;
+	height: 120px;
+}
+
+#chooseAddress div{
+	padding: 5px;
+}
+
+#chooseAddress button{
+	font-size: 16px;
+	color: #FFF;
+	border-radius: 5px;
+	height: 30px;
+	width: 100px;
+}
+
+/*弹出层*/
+
+.mask {
+	position: absolute;
+	filter: alpha(opacity=50);
+	/*IE滤镜，透明度50%*/
+	-moz-opacity: 0.5;
+	/*Firefox私有，透明度50%*/
+	opacity: 0.5;
+	/*其他，透明度50%*/
+	background-color: #000;
+	top: 0;
+	left: 0;
+	z-index: 100;
+}
+
+#close{
+	font-size: 16pxS;
+	cursor: pointer;
+	position: absolute;
+	top: 5px;
+	right: 10px;
+}
