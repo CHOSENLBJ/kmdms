@@ -38,14 +38,14 @@ public interface LabelMapperCustom extends LabelMapper{
      */
     void deleteLabelsOfStudent(String stuId) throws Exception;
 
-    /**查询后台标签列表
+    /**
      * 插入学生所选标签
      * @param labelCustom
      * @throws Exception
      */
     void insertLabelsOfStudent(LabelCustom labelCustom) throws Exception;
     /**
-     * 后台标签类别
+     * 查询后台标签列表
      * @param labelPageBean
      * @return
      * @throws Exception
