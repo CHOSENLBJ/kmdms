@@ -10,7 +10,7 @@
 <meta http-equiv="expires" content="0">
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
-<title>学生宿舍后台管理</title>
+<title>理学生宿舍后台管</title>
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/admin/pintuer.css">
 	<link rel="stylesheet" href="${pageContext.request.contextPath }/css/admin/admin.css">
 	<script src="${pageContext.request.contextPath }/js/common/jquery-1.9.1.js"></script>
@@ -65,7 +65,7 @@
 			<span class="icon-flag"></span>学生管理
 		</h2>
 		<ul>
-			<li><a href=""><span
+			<li><a href="${pageContext.request.contextPath }/student/getStudentList.action" target="right"><span
 					class="icon-caret-right"></span>学生列表</a></li>
 		</ul>
 	</div>
