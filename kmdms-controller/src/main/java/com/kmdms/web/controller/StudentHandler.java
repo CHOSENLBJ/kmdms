@@ -115,8 +115,16 @@ public class StudentHandler{
 		return "redirect:index.action";
 	}
 
+	/**
+	 * 分页得到学生列表
+	 * @param request
+	 * @param pc
+	 * @param stuId
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping("/getStudentList")
-	public String getStudentList(HttpServletRequest request,String pc,String stuId) throws Exception{
+	public String getStudentList(HttpServletRequest request, String pc, String stuId) throws Exception{
 
 		//获得所有标签
 		PageBean<StudentCustom> studentPageBean = studentService.getStudentToPage(pc,stuId);
@@ -124,5 +132,35 @@ public class StudentHandler{
 		request.setAttribute("studentPageBean", studentPageBean);
 		request.setAttribute("keywords", studentPageBean.getCondition().getStuId());
     	return "admin/admin_student_list";
+	}
+
+	/**
+	 * 学生入宿
+	 * @param stu_id
+	 * @param dormitory_id
+	 * @param bed_num
+	 * @param pc
+	 * @param stuId
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/editStuDormitory")
+	public String editStuDormitory(String stu_id, String dormitory_id, String bed_num, String pc, String stuId) throws Exception{
+		studentService.editStuDormitory(stu_id, dormitory_id, bed_num);
+		return "forward:getStudentList.action";
+	}
+
+	/**
+	 * 学生退宿
+	 * @param stu_id
+	 * @param pc
+	 * @param stuId
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("/quitStuDormitory")
+	public String quitStuDormitory(String stu_id, String pc, String stuId) throws Exception{
+		studentService.quitStuDormitory(stu_id);
+		return "forward:getStudentList.action";
 	}
 }

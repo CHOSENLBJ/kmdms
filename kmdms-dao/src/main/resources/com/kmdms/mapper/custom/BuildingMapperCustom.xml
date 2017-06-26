@@ -17,6 +17,10 @@
   	<result column="totalPeople" property="totalPeople" jdbcType="INTEGER"/>
   	<result column="bed_count" property="bedCount" jdbcType="INTEGER"/>
   </resultMap>
+    <resultMap id="BaseResultMapCustomRoughInfo" type="com.kmdms.pojo.custom.BuildingCustom" >
+        <id column="building_id" property="buildingId" jdbcType="VARCHAR" />
+        <result column="building_name" property="buildingName" jdbcType="VARCHAR" />
+    </resultMap>
 
   <select id="selectBuildingToPage" resultMap="BaseResultMapCustom" parameterType="com.kmdms.common.utils.PageBean">
   	SELECT 
@@ -29,6 +33,13 @@
     		  b.building_id=d.building_id   
     GROUP BY  b.building_id
     LIMIT #{pagePosition}, #{pageRecord}
+  </select>
+
+  <select id="selectBuildingRoughInfo" resultMap="BaseResultMapCustomRoughInfo">
+    SELECT
+              building_id, building_name
+    FROM
+              building
   </select>
   	
 </mapper>

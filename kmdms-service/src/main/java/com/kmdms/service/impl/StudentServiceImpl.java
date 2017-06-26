@@ -104,5 +104,28 @@ public class StudentServiceImpl implements StudentService{
 		return studentPageBean;
 	}
 
+    @Override
+	@Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED, readOnly = false)
+    public void editStuDormitory(String stuId, String dormitoryId, String bedNum) throws Exception {
+        //创建一个学生
+		Student student = new Student();
+		//补全学生信息
+		student.setStuId(stuId);
+		student.setDormitoryId(dormitoryId);
+		student.setBedNum(Integer.parseInt(bedNum));
+		studentMapperCustom.updateByPrimaryKeySelective(student);
+    }
+
+	@Override
+	@Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED, readOnly = false)
+	public void quitStuDormitory(String stuId) throws Exception {
+		//得到该学号的学生
+		Student student = studentMapperCustom.selectByPrimaryKey(stuId);
+		//将学生的宿舍及床号设为空
+		student.setDormitoryId(null);
+		student.setBedNum(null);
+		studentMapperCustom.updateByPrimaryKey(student);
+	}
+
 
 }

@@ -29,4 +29,20 @@ public interface StudentService{
      * @throws Exception
      */
     PageBean<StudentCustom> getStudentToPage(String pc, String stuId) throws Exception;
+
+    /**
+     * 学生入宿
+     * @param stuId
+     * @param dormitoryId
+     * @param bedNum
+     * @throws Exception
+     */
+    void editStuDormitory(String stuId, String dormitoryId, String bedNum) throws Exception;
+
+    /**
+     * 学生退宿
+     * @param stuId
+     * @throws Exception
+     */
+    void quitStuDormitory(String stuId) throws Exception;
 }

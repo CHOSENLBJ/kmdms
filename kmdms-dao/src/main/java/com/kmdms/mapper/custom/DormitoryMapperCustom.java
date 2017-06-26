@@ -3,6 +3,8 @@ package com.kmdms.mapper.custom;
 import com.kmdms.mapper.DormitoryMapper;
 import com.kmdms.pojo.custom.DormitoryCustom;
 
+import java.util.List;
+
 public interface DormitoryMapperCustom extends DormitoryMapper {
 
     /**
@@ -13,4 +15,11 @@ public interface DormitoryMapperCustom extends DormitoryMapper {
      */
     DormitoryCustom selectDormitoryFullInfoByDormitoryId(String dormitoryId) throws Exception;
 
+    /**
+     * 根据buildingId查找宿舍
+     * @param buildingId
+     * @return
+     * @throws Exception
+     */
+    List<DormitoryCustom> selectDormitoryByBuildingId(String buildingId) throws Exception;
 }

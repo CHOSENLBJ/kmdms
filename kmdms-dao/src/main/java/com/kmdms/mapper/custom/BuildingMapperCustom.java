@@ -16,4 +16,11 @@ public interface BuildingMapperCustom extends BuildingMapper {
 	 */
 	List<BuildingCustom> selectBuildingToPage(
 			PageBean<BuildingCustom> buildingPageBean) throws Exception;
+
+	/**
+	 * 查找所有宿舍的粗略信息
+	 * @return
+	 * @throws Exception
+	 */
+    List<BuildingCustom> selectBuildingRoughInfo() throws Exception;
 }

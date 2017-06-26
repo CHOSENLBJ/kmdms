@@ -61,12 +61,18 @@
 								<td>${student.dormitoryCustom.roomNum}</td>
 								<td>${student.bedNum}</td>
 								<td><div class="button-group">
-									<a class="button border-main" href="#" onclick="return join()">
-										<span class="icon-edit"></span> 修改
-									</a>
-									<a class="button border-red" href="#" onclick="return del()">
-										<span class="icon-trash-o"></span> 删除
-									</a>
+									<c:choose>
+										<c:when test="${student.dormitoryCustom == null}">
+											<a class="button border-main" href="#" onclick="return join('${pageContext.request.contextPath}/building/getAllBuildingRoughInfo.action', '${student.stuId}', '${studentPageBean.pageCode}', '${keywords}')">
+												<span class="icon-edit"></span> 住宿
+											</a>
+										</c:when>
+										<c:otherwise>
+											<a class="button border-red" href="#" onclick="return del('${pageContext.request.contextPath}/student/quitStuDormitory.action?stu_id=${student.stuId}&pc=${studentPageBean.pageCode}&stuId=${keywords}')">
+												<span class="icon-trash-o"></span> 退宿
+											</a>
+										</c:otherwise>
+									</c:choose>
 								</div></td>
 							</tr>
 						</c:forEach>
@@ -118,31 +124,38 @@
         		</div>
 			</div>
 		</form>
-		<div id="chooseAddress">
-			<div>
-				<h2>选择宿舍</h2>
+		<form action="${pageContext.request.contextPath}/student/editStuDormitory.action" method="post">
+			<input type="hidden" name="stu_id" id="STID" />
+			<input type="hidden" name="pc" id="PCID" />
+			<input type="hidden" name="stuId" id="STUID" />
+			<div id="chooseAddress">
+				<div>
+					<h2>选择宿舍</h2>
+				</div>
+				<div>
+					<select id="BuLID" name="building_id">
+						<option >选择宿舍楼</option>
+					</select>
+					<select id="DomID" name="dormitory_id">
+						<option>选择宿舍</option>
+					</select>
+					<select id="BeNID" name="bed_num">
+						<option>选择床号</option>
+					</select>
+				</div>
+				<div>
+					<button type="submit" class="bg-main">确定</button>
+				</div>
+				<span id="close">X</span>
 			</div>
-			<div>
-				<select>
-					<option>选择宿舍楼</option>
-				</select>
-				<select>
-					<option>选择宿舍</option>
-				</select>
-				<select>
-					<option>选择床号</option>
-				</select>
-			</div>
-			<div>
-				<button type="submit" class="bg-main">确定</button>
-			</div>
-			<span id="close">X</span>
-		</div>
+		</form>
+		<input type="hidden" value="${pageContext.request.contextPath}" id="projectName">
 		<div class="mask"></div>
 		<script type="text/javascript">
 			//单个删除
-			function del(id, mid, iscid) {
-				if (confirm("您确定要删除吗?")) {
+			function del(url) {
+				if (confirm("您确定要退宿吗?")) {
+				    window.location.href = url;
 				}
 			}
 		</script>

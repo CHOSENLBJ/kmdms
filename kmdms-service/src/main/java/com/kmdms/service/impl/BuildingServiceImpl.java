@@ -126,6 +126,11 @@ public class BuildingServiceImpl implements BuildingService{
 		}
 		return buildingCustom;
 	}
-	
-	
+
+	@Override
+	public List<BuildingCustom> findAllBuildingRoughInfo() throws Exception {
+		return buildingMapperCustom.selectBuildingRoughInfo();
+	}
+
+
 }

@@ -54,15 +54,30 @@
             s.stu_department 's.stu_department', s.stu_class 's.stu_class', s.stu_sex 's.stu_sex', s.bed_num 's.bed_num',
             s.dormitory_id 's.dormitory_id', s.qq 's.qq', s.address 's.address', s.note 's.note'
     FROM
-	        dormitory d, building b, student s
-    WHERE
+	        (dormitory d
+	      LEFT JOIN
+	        building b
+	      ON
+	        d.building_id = b.building_id)
+	      LEFT JOIN
+	        student s
+	      ON
 	        d.dormitory_id = s.dormitory_id
-    AND
-	        d.building_id = b.building_id
-    AND
+    WHERE
 	        d.dormitory_id = #{dormitoryId}
     ORDER BY
 	        s.bed_num ASC
+  </select>
+
+  <select id="selectDormitoryByBuildingId" parameterType="string" resultMap="BaseResultMapCustom">
+    SELECT
+            dormitory_id, room_num, bed_count, dormitory_sort, building_id
+    FROM
+            dormitory
+    WHERE
+            building_id = #{buildingId}
+    ORDER BY
+            dormitory_sort ASC
   </select>
 
 </mapper>

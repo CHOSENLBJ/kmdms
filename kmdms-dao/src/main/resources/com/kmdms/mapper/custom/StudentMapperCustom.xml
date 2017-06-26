@@ -51,17 +51,21 @@
   </select>
 
   <select id="selectStudentToPage" parameterType="com.kmdms.common.utils.PageBean" resultMap="BaseResultMapCustomAdminStudentPage">
-     SELECT
+    SELECT
             s.stu_id, s.stu_name, b.building_name, d.room_num, s.bed_num, d.dormitory_id, b.building_id
-     FROM
-            student s, dormitory d, building b
-     WHERE
-            s.dormitory_id = d.dormitory_id
-     AND
+    FROM
+            (student s
+      LEFT JOIN
+            dormitory d
+      ON
+            s.dormitory_id = d.dormitory_id)
+      LEFT JOIN
+            building b
+      ON
             d.building_id = b.building_id
-     <if test="condition != null">
+      <if test="condition != null">
          <if test="condition.stuId != null and condition.stuId != ''">
-     AND    s.stu_id = #{condition.stuId}
+    WHERE    s.stu_id = #{condition.stuId}
          </if>
      </if>
       LIMIT #{pagePosition}, #{pageRecord}

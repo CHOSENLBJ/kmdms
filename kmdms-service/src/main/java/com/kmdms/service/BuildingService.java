@@ -3,6 +3,8 @@ package com.kmdms.service;
 import com.kmdms.common.utils.PageBean;
 import com.kmdms.pojo.custom.BuildingCustom;
 
+import java.util.List;
+
 public interface BuildingService {
 	/**
 	 * 得到宿舍楼列表，带分页
@@ -32,5 +34,11 @@ public interface BuildingService {
 	 * @throws Exception
 	 */
 	BuildingCustom selectBuilding(String buildingId) throws Exception;
-	
+
+	/**
+	 * 查找所有宿舍的粗略信息
+	 * @return
+	 * @throws Exception
+	 */
+    List<BuildingCustom> findAllBuildingRoughInfo() throws Exception;
 }
